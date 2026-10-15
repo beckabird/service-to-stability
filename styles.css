@@ -328,3 +328,11 @@ h3 { letter-spacing: -0.005em; }
 .contact-card dt { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--sage-text); padding-top: 4px; }
 .contact-card dd { margin: 0; min-width: 0; word-break: break-word; }
 .contact-card a { color: var(--heading); font-weight: 600; text-decoration-color: var(--sage); text-underline-offset: 3px; }
+
+/* Sponsored beds and sponsor credit */
+.bed.taken { border-style: solid; border-color: var(--sage); background: rgba(119,145,130,.28); }
+.bed.taken span { color: var(--sand); letter-spacing: .04em; text-transform: none; font-size: 13px; }
+.beds-wrap h3 .count { margin-left: 10px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sage-on-band); }
+.sponsor-credit { border-left: 3px solid var(--sage); padding: 4px 0 4px 18px; display: grid; gap: 6px; max-width: 720px; color: var(--band-muted); }
+.sponsor-credit b { color: var(--band-fg); font-weight: 600; }
+.sponsor-credit a, .legal a { color: inherit; text-decoration-color: var(--sage); text-underline-offset: 3px; }
