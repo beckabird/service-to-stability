@@ -12,12 +12,19 @@ Plain static HTML and CSS. No build step.
 | `roadmap.html` | Roadmap |
 | `faq.html` | FAQ |
 | `get-involved.html` | Founding-list form and contact details |
+| `donate.html` | Donate page (Stripe Payment Links) |
+| `donate-config.js` | Paste Stripe Payment Link URLs here to turn on online giving |
 | `styles.css` | Shared styles (brand tokens at the top) |
 | `assets/` | White logo lockups for the navy header and footer |
 
 ## Deploy
 
 Vercel: import this repo, framework preset **Other**, no build command, output directory `.` (root).
+
+## Turning on donations
+
+1. In Stripe, create four Payment Links: $720/month recurring (Sponsor a bed), $180/month recurring (Share a bed), $24 one time (One night), and one time with "customer chooses amount" (Fund the house).
+2. Paste each `https://buy.stripe.com/...` URL into `donate-config.js` and push. Buttons switch from "Pledge this gift" to live checkout automatically.
 
 ## Before launch
 

@@ -336,3 +336,20 @@ h3 { letter-spacing: -0.005em; }
 .sponsor-credit { border-left: 3px solid var(--sage); padding: 4px 0 4px 18px; display: grid; gap: 6px; max-width: 720px; color: var(--band-muted); }
 .sponsor-credit b { color: var(--band-fg); font-weight: 600; }
 .sponsor-credit a, .legal a { color: inherit; text-decoration-color: var(--sage); text-underline-offset: 3px; }
+
+/* Donate page */
+.gives { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.give { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--sage); border-radius: 6px; padding: 26px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.give.feature { background: var(--band); border-color: var(--band); border-top-color: var(--sand); }
+.give.feature h3, .give.feature .give-amt { color: var(--band-fg); }
+.give.feature p { color: var(--band-muted); }
+.give .give-per { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-text); }
+.give.feature .give-per { color: var(--sage-on-band); }
+.give .give-amt { font-family: var(--font-display); font-size: 44px; font-weight: 700; letter-spacing: -.02em; line-height: 1; color: var(--heading); }
+.give h3 { font-size: 20px; }
+.give p { color: var(--muted); font-size: 16px; }
+.give .btn { margin-top: 8px; justify-self: start; }
+.give-soon { margin-bottom: 24px; padding: 14px 18px; border-radius: 6px; background: var(--sage-soft); border-left: 3px solid var(--sage); font-size: 16.5px; }
+.actions .btn-outline { color: var(--heading); }
+@media (max-width: 1000px) { .gives { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .gives { grid-template-columns: 1fr; } }
