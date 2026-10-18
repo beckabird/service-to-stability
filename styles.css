@@ -353,3 +353,24 @@ h3 { letter-spacing: -0.005em; }
 .actions .btn-outline { color: var(--heading); }
 @media (max-width: 1000px) { .gives { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .gives { grid-template-columns: 1fr; } }
+
+/* Pickup game page */
+.band .give-soon { margin: 0; color: var(--fg); }
+.band .pickup-fine { margin-top: 0; color: var(--band-muted); }
+.included .link { font-size: 16px; margin-top: 4px; }
+.partners { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.partner { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--sage); border-radius: 6px; padding: 28px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.partner .give-per { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-text); }
+.partner h3 { font-size: 24px; }
+.partner p { color: var(--muted); font-size: 16.5px; }
+.partner .link { justify-self: start; font-size: 16px; text-decoration: none; display: inline-flex; gap: 8px; }
+.chapters { margin-top: 48px; display: grid; gap: 12px; }
+.chapters h3 { font-size: 24px; }
+.chapters > p { color: var(--muted); max-width: 65ch; }
+.chapter-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 3px solid var(--sage); }
+.chapter-list li { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); display: grid; gap: 2px; min-width: 0; }
+.chapter-list b { font-family: var(--font-display); font-size: 19px; color: var(--heading); }
+.chapter-list span { font-size: 15px; color: var(--muted); }
+.chapter-list a { color: var(--sage-text); font-weight: 600; text-underline-offset: 3px; }
+.link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 860px) { .partners, .link-grid { grid-template-columns: 1fr; } .chapter-list { grid-template-columns: 1fr 1fr; } }
