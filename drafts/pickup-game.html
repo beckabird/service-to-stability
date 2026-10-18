@@ -26,9 +26,39 @@
 .page-hero .lede .link { color: var(--band-fg); }
 @media (max-width: 860px) { .lots { grid-template-columns: 1fr; } }
 .speakers { display: grid; gap: 16px; }
-.draft-note { background: var(--sage-soft); color: var(--fg); border-bottom: 1px solid var(--line); font-size: 15px; }
-.draft-note .wrap { padding-block: 10px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
-.draft-note b { color: var(--sage-text); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
+.preview-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--sand); color: #14212C; font-size: 14.5px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--sand); }
+.preview-bar .wrap { padding-block: 9px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; justify-content: space-between; }
+.preview-bar b { font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: 12.5px; display: inline-flex; align-items: center; gap: 10px; }
+.preview-bar b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #163A5F; }
+.preview-bar a { color: #14212C; font-weight: 600; text-underline-offset: 3px; }
+.for-nate { background: var(--surface); border-bottom: 1px solid var(--line); }
+.for-nate .wrap { padding-block: 56px 60px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.for-nate .eyebrow { margin: 0 0 14px; }
+.for-nate h2 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.05; letter-spacing: -.02em; color: var(--heading); text-wrap: balance; margin: 0 0 18px; }
+.for-nate .note { display: grid; gap: 14px; max-width: 62ch; }
+.for-nate .note p { color: var(--muted); font-size: 18px; margin: 0; }
+.for-nate .asks { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; }
+.for-nate .asks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start; color: var(--fg); font-size: 17px; }
+.for-nate .asks li span { width: 28px; height: 28px; border-radius: 50%; background: var(--sage-soft); color: var(--sage-text); font-weight: 700; font-size: 14px; display: grid; place-items: center; }
+.for-nate .sig { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15.5px; }
+.for-nate .sig b { color: var(--heading); font-size: 17px; }
+.for-nate .jump { justify-self: start; }
+.portrait { margin: 0; position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 6px; overflow: hidden; background: var(--band); display: grid; place-items: center; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.portrait .initials { font-size: clamp(56px, 9vw, 96px); font-weight: 700; letter-spacing: -.02em; color: var(--sand); }
+.portrait::after { content: ""; position: absolute; inset: auto 0 0 0; height: 6px; background: var(--sage); }
+.portrait figcaption { position: absolute; left: 12px; bottom: 18px; background: rgba(20,33,44,.78); color: #F7F5F0; font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border-radius: 3px; }
+.for-nate .portrait { border: 1px solid var(--line); }
+.speaker { grid-template-columns: 132px minmax(0, 1fr); align-items: start; column-gap: 24px; }
+.speaker .portrait { grid-row: span 4; }
+.speaker .portrait .initials { font-size: 44px; }
+.speaker > :not(.portrait) { min-width: 0; }
+.chip-preview { display: inline-block; margin-left: 10px; padding: 2px 9px; border-radius: 999px; background: var(--sand); color: #14212C; font-size: 11.5px; letter-spacing: .16em; vertical-align: 2px; }
+.prepared { background: var(--sage-soft); border-top: 1px solid var(--line); }
+.prepared .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between; align-items: baseline; font-size: 15.5px; color: var(--fg); }
+@media (max-width: 860px) { .for-nate .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px 44px; } .for-nate .portrait { max-width: 220px; order: -1; } }
+@media (max-width: 480px) { .speaker { grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; } .speaker .portrait .initials { font-size: 32px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -62,7 +92,27 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="bed" viewBox="0 0 44 28"><path d="M3 4V25M3 18H41V25M3 13H41V18M10 13V9C10 8 11 7 12 7H19C20 7 21 8 21 9V13"/></symbol>
 </svg>
-<div class="draft-note" role="note" id="top"><div class="wrap"><b>Concept preview</b><span>A first look at what the Rally Point Pickup Game could be. Not published; date, venue and lineup are proposals for discussion.</span></div></div>
+<div class="preview-bar" role="note" id="top"><div class="wrap"><b>Private preview for Nate Boyer</b><span>Not public. Nothing here is final. <a href="#for-nate">Read the note</a></span></div></div>
+<section class="for-nate" id="for-nate" aria-labelledby="for-nate-title">
+  <div class="wrap">
+    <div class="note">
+      <p class="eyebrow">Prepared for Nate Boyer</p>
+      <h2 id="for-nate-title">Nate, here's the game we'd like to build with you.</h2>
+      <p>This is a working concept for the Rally Point Pickup Game. It's one Saturday at Fortera Stadium in Clarksville, where veterans and community players share a field. Every dollar raised opens Rally Point House: free, sober transitional housing for eight veterans near Fort Campbell.</p>
+      <p>The page below is what the public event page could look like. It isn't published anywhere. We built it so you could see the idea before we commit to any of it.</p>
+      <p><b>What we're hoping you'll consider:</b></p>
+      <ul class="asks">
+        <li><span>1</span><div>Speak at the post-game huddle. Your topic, your length.</div></li>
+        <li><span>2</span><div>Help us run the day MVP-style: a shared workout before kickoff and honest conversation after.</div></li>
+        <li><span>3</span><div>Share the event page once it's live.</div></li>
+      </ul>
+      <p>Everything else is open, including the date, the format and who's on the field. Tell us what would make it worth your time.</p>
+      <div class="sig"><b>Becka Karle</b><span>Co-Founder, The Service to Stability Project</span><span>931-324-4070 · contact@servicetostability.org</span></div>
+      <a class="btn btn-outline arrow jump" href="#event">See the event page</a>
+    </div>
+    <figure class="portrait portrait-nate"><span class="initials" aria-hidden="true">NB</span><figcaption>Nate Boyer</figcaption></figure>
+  </div>
+</section>
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="https://www.project-pledge.com/" aria-label="The Service to Stability Project, home">
@@ -83,9 +133,9 @@
   </div>
 </div>
 <main>
-<section class="page-hero">
+<section class="page-hero" id="event">
   <div class="wrap">
-    <p class="eyebrow">Saturday, May 15, 2027 · Clarksville, Tennessee</p>
+    <p class="eyebrow">Saturday, May 15, 2027 · Clarksville, Tennessee<span class="chip-preview">Preview</span></p>
     <h1>Rally Point Pickup Game.</h1>
     <p class="lede">Veterans and community players, two mixed teams, one friendly pickup game. A community workout before kickoff and a huddle after, where veterans speak briefly about service, transition and peer support. Family friendly, with resource tables and a <a class="link" href="#auction">silent auction</a> of donated sports memorabilia and signed books. <strong>Every dollar opens the door at Rally Point House.</strong></p>
     <div class="actions">
@@ -119,13 +169,15 @@
         <li><span class="k">Goal</span><span class="v"><b>$25,000</b>, the startup fund for Rally Point House.</span></li>
       </ul>
       <div class="speakers">
-        <div class="free">
+        <div class="free speaker">
+          <figure class="portrait portrait-nate"><span class="initials" aria-hidden="true">NB</span></figure>
           <p class="eyebrow">Proposed special guest</p>
           <p class="big">Nate Boyer</p>
           <p>U.S. Army Green Beret veteran. Former University of Texas walk-on and Seattle Seahawks long snapper. Cofounder, with Fox Sports' Jay Glazer, of Merging Vets and Players (MVP).</p>
           <p>Nate would speak at the post-game huddle about service, transition and why no veteran should have to make the jump alone.</p>
         </div>
-        <div class="free">
+        <div class="free speaker">
+          <figure class="portrait portrait-scott"><span class="initials" aria-hidden="true">SM</span></figure>
           <p class="eyebrow">Guest speaker</p>
           <p class="big">Scott McEwen</p>
           <p>Coauthor, with Chris Kyle, of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film.</p>
@@ -370,6 +422,7 @@
 })();
 </script>
 </main>
+<div class="prepared" role="note"><div class="wrap"><span><b>Private preview prepared for Nate Boyer.</b> Not published. Date, venue and lineup are proposals for discussion.</span><a class="link" href="#for-nate">Back to the note</a></div></div>
 <footer>
   <div class="wrap">
     <div class="foot-top">
