@@ -4,6 +4,6 @@
 window.STS_GIVE = {
   "bed-monthly": "",   // $720 / month recurring: "Sponsor a bed"
   "share-monthly": "", // $180 / month recurring: "Share a bed"
-  "night": "",         // $24 one time: "One night"
+  "week": "",          // $350 one time: "One week" (case management, drug testing, house safety)
   "custom": ""         // one time, customer chooses amount: "Fund the house"
 };

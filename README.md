@@ -14,6 +14,7 @@ Plain static HTML and CSS. No build step.
 | `get-involved.html` | Founding-list form and contact details |
 | `donate.html` | Donate page (Stripe Payment Links) |
 | `donate-config.js` | Paste Stripe Payment Link URLs here to turn on online giving |
+| `rally-point/` | The Rally Point House site (8 pages, served at /rally-point); `rally-point/give-config.js` holds its Stripe links |
 | `styles.css` | Shared styles (brand tokens at the top) |
 | `assets/` | White logo lockups for the navy header and footer |
 

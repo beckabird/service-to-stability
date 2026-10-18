@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Refer a Veteran · The Rally Point House</title>
+<meta name="description" content="Free, structured, sober transitional housing for veterans in Clarksville, Tennessee, near Fort Campbell. A Service to Stability Project house, opening soon.">
+<meta property="og:title" content="Refer a Veteran · The Rally Point House">
+<meta property="og:description" content="Free, structured, sober transitional housing for veterans in Clarksville, Tennessee, near Fort Campbell. A Service to Stability Project house, opening soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="rp.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand rp-brand" href="index.html" aria-label="The Rally Point House, home">
+      <span class="rp-word"><small>THE</small><strong>Rally Point House</strong><em>A Service to Stability Project house</em></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nl" href="the-house.html">The House</a><a class="nl" href="how-it-works.html">How It Works</a><a class="nl" href="partners.html">For Partners</a><a class="nl" href="sponsor.html">Sponsor a Week</a><a class="nl" href="faq.html">FAQ</a>
+      <a class="btn btn-sand" href="refer.html">Refer a Veteran</a>
+      <details class="menu"><summary>Menu</summary><div class="menu-panel"><a href="index.html">Home</a><a href="the-house.html">The House</a><a href="how-it-works.html">How It Works</a><a href="partners.html">For Partners</a><a href="sponsor.html">Sponsor a Week</a><a href="faq.html">FAQ</a><a href="lead-the-house.html">Lead the House</a><a href="refer.html" aria-current="page">Refer a Veteran</a></div></details>
+    </nav>
+  </div>
+</header>
+<div class="crisis" role="note"><div class="wrap"><strong>Need help today?</strong><span>We're not open yet. In crisis: call 988 and press 1, or text 838255. Homeless or at risk: VA National Call Center for Homeless Veterans, 877-424-3838. Free, 24/7.</span></div></div>
+<main>
+<section class="page-hero"><div class="wrap"><p class="eyebrow">Refer a veteran</p><h1>Join the opening list.</h1><p class="lede">We'll reach out before the house opens. Partners, veterans, family members, sponsors and House Manager applicants all start here.</p></div><svg class="trail" viewBox="0 0 380 180" aria-hidden="true"><path d="M330 0C300 22 262 30 262 62C262 88 300 96 272 120C240 148 170 166 110 180H380V0Z"/></svg></section>
+<section class="join"><div class="wrap">
+  <div class="intro">
+    <p class="eyebrow">Before you start</p>
+    <h2>Keep it simple.</h2>
+    <ul class="checks"><li><span>Contact details and timing are all we need now</span></li><li><span><b>No medical, legal or criminal details</b>; we'll cover what's needed by phone</span></li><li><span>We reply before opening day, in the order received</span></li></ul>
+    <div class="contact-card"><p class="eyebrow">Or reach intake directly</p><dl><dt>Email</dt><dd><a href="mailto:contact@servicetostability.org">contact@servicetostability.org</a></dd><dt>Phone</dt><dd><a href="tel:+19313244070">931-324-4070</a></dd></dl></div>
+  </div>
+  <form class="card" id="rp-form" novalidate>
+    <div class="field"><label for="f-who">I am</label><select id="f-who" name="who">
+      <option value="referrer">Referring a veteran (VA, treatment, court, other)</option>
+      <option value="veteran">A veteran looking for housing</option>
+      <option value="family">A family member</option>
+      <option value="sponsor">Interested in sponsoring weeks</option>
+      <option value="manager">Applying to be House Manager</option>
+    </select></div>
+    <div class="row">
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+    </div>
+    <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+    <div class="field" id="org-field"><label for="f-org">Organization <span class="opt">(for referrers)</span></label><input id="f-org" name="org" autocomplete="organization" placeholder="VA clinic, treatment center, court, agency"></div>
+    <div class="row">
+      <div class="field"><label for="f-county">County</label><input id="f-county" name="county" placeholder="Montgomery"></div>
+      <div class="field"><label for="f-timing">Timing</label><select id="f-timing" name="timing"><option>As soon as you open</option><option>Within 30 days of opening</option><option>Planning ahead</option></select></div>
+    </div>
+    <div class="field"><label for="f-note">Anything we should know?</label><textarea id="f-note" name="note" placeholder="Best time to call, discharge date, why you'd be a good House Manager"></textarea><span class="privacy">Please don't include medical or legal details.</span></div>
+    <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <button class="btn btn-sand" type="submit">Send</button>
+  </form>
+  <div class="done" id="rp-done" hidden role="status"><h3>You're on the opening list.</h3><p>Our intake director will reach out before we open. If you need help today, call 988 and press 1, or 877-424-3838.</p></div>
+</div></section>
+<script>(function(){var f=document.getElementById('rp-form'),d=document.getElementById('rp-done'),w=document.getElementById('f-who'),o=document.getElementById('org-field');var h=(location.hash||'').slice(1);if(h&&w.querySelector('option[value="'+h+'"]'))w.value=h;function t(){o.hidden=w.value!=='referrer';}w.addEventListener('change',t);t();f.addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('f-name'),p=document.getElementById('f-phone');[n,p].forEach(function(x){x.removeAttribute('aria-invalid');});var b=[n,p].filter(function(x){return !x.value.trim();});if(b.length){b.forEach(function(x){x.setAttribute('aria-invalid','true');});b[0].focus();return;}f.hidden=true;d.hidden=false;d.setAttribute('tabindex','-1');d.focus();});})();</script>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="rp-foot-word"><small>THE</small><strong>Rally Point House</strong><span class="rule"></span><em>A SERVICE TO STABILITY PROJECT HOUSE · CLARKSVILLE, TN</em></div>
+      <div><h4>The house</h4><ul><li><a href="the-house.html">The house</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="partners.html">For referral partners</a></li><li><a href="lead-the-house.html">Lead the house</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="refer.html">Refer a veteran</a></li><li><a href="sponsor.html">Sponsor a week</a></li><li>Veterans Crisis Line: 988, press 1</li><li>Homeless veterans: 877-424-3838</li></ul></div>
+      <div><h4>Contact</h4><ul class="contact"><li><a href="mailto:contact@servicetostability.org">contact@servicetostability.org</a></li><li><a href="tel:+19313244070">931-324-4070</a></li><li>131 Dean Dr PMB #755<br>Clarksville, TN 37040 (mail only)</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 The Service to Stability Project · Bed 1 sponsored by <a href="https://4everbound.com" target="_blank" rel="noopener">4everbound</a></span><span><a href="https://servicetostability.org">servicetostability.org</a></span></div>
+  </div>
+</footer>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function t(){var i=(location.hash||'').slice(1);if(i&&document.getElementById(i))return;window.scrollTo(0,0)}t();addEventListener('pageshow',t);addEventListener('load',t)})();</script>
+</body>
+</html>
