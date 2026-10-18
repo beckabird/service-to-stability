@@ -374,3 +374,14 @@ h3 { letter-spacing: -0.005em; }
 .chapter-list a { color: var(--sage-text); font-weight: 600; text-underline-offset: 3px; }
 .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 860px) { .partners, .link-grid { grid-template-columns: 1fr; } .chapter-list { grid-template-columns: 1fr 1fr; } }
+.lots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.lot { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--sand); border-radius: 6px; padding: 26px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.lot.lot-open { border-style: dashed; border-top: 3px solid var(--sage); background: transparent; }
+.lot .give-per { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-text); }
+.lot h3 { font-size: 22px; }
+.lot p { color: var(--muted); font-size: 16.5px; }
+.lot .lot-tag { justify-self: start; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: var(--sage); color: #fff; padding: 3px 10px; border-radius: 999px; }
+.lot .link { justify-self: start; font-size: 16px; text-decoration: none; display: inline-flex; gap: 8px; }
+.page-hero .lede .link { color: var(--band-fg); }
+@media (max-width: 860px) { .lots { grid-template-columns: 1fr; } }
+.speakers { display: grid; gap: 16px; }
