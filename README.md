@@ -23,6 +23,12 @@ Plain static HTML and CSS. No build step.
 
 Vercel: import this repo, framework preset **Other**, no build command, output directory `.` (root).
 
+Live at **https://www.project-pledge.com** (Vercel project `service-to-stability`; the apex `project-pledge.com` 308-redirects to `www`). Every push to `main` deploys to production.
+
+- Internal links are root-absolute clean URLs (`/sponsor`, `/rally-point/the-house`). Keep it that way: `vercel.json` sets `trailingSlash: false`, so relative links inside `rally-point/` would resolve against `/` and break.
+- Each page carries a canonical and `og:url` on `www.project-pledge.com`; `sitemap.xml` lists every page. Add new pages to both.
+- Local preview: `npx serve` from the repo root (opening files directly won't resolve root-absolute paths).
+
 ## Turning on donations
 
 1. In Stripe, create four Payment Links: $720/month recurring (Sponsor a bed), $180/month recurring (Share a bed), $24 one time (One night), and one time with "customer chooses amount" (Fund the house).
