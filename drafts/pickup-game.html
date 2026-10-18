@@ -44,6 +44,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .for-nate .sig { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15.5px; }
 .for-nate .sig b { color: var(--heading); font-size: 17px; }
 .for-nate .jump { justify-self: start; }
+.onboard { border: 1px solid var(--line); border-left: 4px solid var(--sage); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; background: var(--sage-soft); }
+.onboard .eyebrow { margin: 0; }
+.for-nate .onboard p:not(.eyebrow) { color: var(--fg); font-size: 17px; }
 .portrait { margin: 0; position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 6px; overflow: hidden; background: var(--band); display: grid; place-items: center; }
 .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .portrait .initials { font-size: clamp(56px, 9vw, 96px); font-weight: 700; letter-spacing: -.02em; color: var(--sand); }
@@ -81,10 +84,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     { "@type": "Organization", "name": "Foxhole Forum", "url": "https://foxholevets.com" },
     { "@type": "Organization", "name": "Merging Vets and Players", "url": "https://vetsandplayers.org" }
   ],
-  "performer": [
-    { "@type": "Person", "name": "Nate Boyer" },
-    { "@type": "Person", "name": "Scott McEwen" }
-  ]
+  "performer": { "@type": "Person", "name": "Nate Boyer" }
 }
 </script>
 </head>
@@ -100,6 +100,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <h2 id="for-nate-title">Nate, here's the game we'd like to build with you.</h2>
       <p>This is a working concept for the Rally Point Pickup Game. It's one Saturday at Fortera Stadium in Clarksville, where veterans and community players share a field. Every dollar raised opens Rally Point House: free, sober transitional housing for eight veterans near Fort Campbell.</p>
       <p>The page below is what the public event page could look like. It isn't published anywhere. We built it so you could see the idea before we commit to any of it.</p>
+      <div class="onboard">
+        <p class="eyebrow">Already on board</p>
+        <p><b>Scott McEwen</b>, author of <cite>American Sniper</cite>, has pledged signed books for the silent auction. He's also offered to join as a guest speaker if we need him, or to sign books on game day.</p>
+      </div>
       <p><b>What we're hoping you'll consider:</b></p>
       <ul class="asks">
         <li><span>1</span><div>Speak at the post-game huddle. Your topic, your length.</div></li>
@@ -178,10 +182,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </div>
         <div class="free speaker">
           <figure class="portrait portrait-scott"><span class="initials" aria-hidden="true">SM</span></figure>
-          <p class="eyebrow">Guest speaker</p>
+          <p class="eyebrow">Pledged supporter</p>
           <p class="big">Scott McEwen</p>
-          <p>Coauthor, with Chris Kyle, of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film.</p>
-          <p>Scott joins the post-game huddle and has donated signed books to the <a class="link" href="#auction">silent auction</a>.</p>
+          <p>Author, with Chris Kyle, of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film.</p>
+          <p>Scott has pledged signed books to the <a class="link" href="#auction">silent auction</a>. He's also offered to speak at the post-game huddle if needed, or to sign books on game day.</p>
         </div>
       </div>
     </div>
@@ -249,7 +253,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <article class="lot">
         <p class="give-per">Signed books</p>
         <h3>Signed books from Scott McEwen</h3>
-        <p>Donated by game-day guest speaker Scott McEwen, coauthor with Chris Kyle of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film.</p>
+        <p>Pledged by Scott McEwen, author with Chris Kyle of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film. Scott may also be on hand to sign books.</p>
         <span class="lot-tag">Pledged</span>
       </article>
       <article class="lot lot-open">
