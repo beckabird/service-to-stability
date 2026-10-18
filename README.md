@@ -13,7 +13,6 @@ Plain static HTML and CSS. No build step.
 | `faq.html` | FAQ |
 | `get-involved.html` | Founding-list form and contact details |
 | `donate.html` | Donate page (Stripe Payment Links) |
-| `pickup.html` | Rally Point Pickup Game event page (served at `/pickup`), with donate cards, partners, MVP chapters and help links |
 | `donate-config.js` | Paste Stripe Payment Link URLs here to turn on online giving |
 | `rally-point/` | The Rally Point House site (8 pages, served at /rally-point); `rally-point/give-config.js` holds its Stripe links |
 | `styles.css` | Shared styles (brand tokens at the top) |
@@ -38,3 +37,7 @@ Live at **https://www.project-pledge.com** (Vercel project `service-to-stability
 
 - The founding-list form on `get-involved.html` only shows a thank-you message; connect it to a form service (Formspree, Tally, Google Forms) so submissions are saved.
 - Figures (34,000 veterans, ≈4,500 Fort Campbell separations, 31% stay local) and budget numbers are planning estimates; keep them in sync with the brand guide.
+
+## Drafts
+
+`drafts/` is excluded from deploys by `.vercelignore`, so nothing in it is ever live. `drafts/pickup-game.html` is the Rally Point Pickup Game concept page (shared privately, not on the site). `/pickup` temporarily redirects home. To launch it: move it to the repo root as `pickup.html`, drop the concept banner and noindex tag, add it back to the footers and `sitemap.xml`, and remove the redirect from `vercel.json`.

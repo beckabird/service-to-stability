@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rally Point Pickup Game · May 15, 2027 · Clarksville, TN</title>
-<link rel="canonical" href="https://www.project-pledge.com/pickup">
-<meta property="og:url" content="https://www.project-pledge.com/pickup">
 <meta name="description" content="Veterans and community players, one friendly pickup game at Fortera Stadium, Clarksville, TN, on Saturday, May 15, 2027. Free to watch. Special guest Nate Boyer. Every dollar opens Rally Point House.">
 <meta property="og:title" content="Rally Point Pickup Game · Saturday, May 15, 2027">
 <meta property="og:description" content="Play, watch, bid or sponsor a bed. Free to watch, all ages, rain or shine at Fortera Stadium, Clarksville, TN. Goal: $25,000 to open Rally Point House.">
@@ -15,6 +14,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
 <link rel="stylesheet" href="/styles.css">
 <style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+<style>
+.lots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.lot { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--sand); border-radius: 6px; padding: 26px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.lot.lot-open { border-style: dashed; border-top: 3px solid var(--sage); background: transparent; }
+.lot .give-per { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-text); }
+.lot h3 { font-size: 22px; }
+.lot p { color: var(--muted); font-size: 16.5px; }
+.lot .lot-tag { justify-self: start; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: var(--sage); color: #fff; padding: 3px 10px; border-radius: 999px; }
+.lot .link { justify-self: start; font-size: 16px; text-decoration: none; display: inline-flex; gap: 8px; }
+.page-hero .lede .link { color: var(--band-fg); }
+@media (max-width: 860px) { .lots { grid-template-columns: 1fr; } }
+.speakers { display: grid; gap: 16px; }
+.draft-note { background: var(--sage-soft); color: var(--fg); border-bottom: 1px solid var(--line); font-size: 15px; }
+.draft-note .wrap { padding-block: 10px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.draft-note b { color: var(--sage-text); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,7 +51,10 @@
     { "@type": "Organization", "name": "Foxhole Forum", "url": "https://foxholevets.com" },
     { "@type": "Organization", "name": "Merging Vets and Players", "url": "https://vetsandplayers.org" }
   ],
-  "performer": { "@type": "Person", "name": "Nate Boyer" }
+  "performer": [
+    { "@type": "Person", "name": "Nate Boyer" },
+    { "@type": "Person", "name": "Scott McEwen" }
+  ]
 }
 </script>
 </head>
@@ -44,16 +62,17 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="bed" viewBox="0 0 44 28"><path d="M3 4V25M3 18H41V25M3 13H41V18M10 13V9C10 8 11 7 12 7H19C20 7 21 8 21 9V13"/></symbol>
 </svg>
+<div class="draft-note" role="note" id="top"><div class="wrap"><b>Concept preview</b><span>A first look at what the Rally Point Pickup Game could be. Not published; date, venue and lineup are proposals for discussion.</span></div></div>
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="The Service to Stability Project, home">
+    <a class="brand" href="https://www.project-pledge.com/" aria-label="The Service to Stability Project, home">
       <img src="/assets/logo-horizontal-white.png" alt="The Service to Stability Project" width="640" height="125">
     </a>
     <nav class="nav" aria-label="Primary">
-      <a class="nl" href="/the-house">The House</a><a class="nl" href="/sponsor">Sponsor a Bed</a><a class="nl" href="/roadmap">Roadmap</a><a class="nl" href="/faq">FAQ</a>
-      <a class="nl" href="/get-involved">Get Involved</a>
+      <a class="nl" href="https://www.project-pledge.com/the-house">The House</a><a class="nl" href="https://www.project-pledge.com/sponsor">Sponsor a Bed</a><a class="nl" href="https://www.project-pledge.com/roadmap">Roadmap</a><a class="nl" href="https://www.project-pledge.com/faq">FAQ</a>
+      <a class="nl" href="https://www.project-pledge.com/get-involved">Get Involved</a>
       <a class="btn btn-sand" href="#give">Donate</a>
-      <details class="menu"><summary>Menu</summary><div class="menu-panel"><a href="/">Home</a><a href="/pickup" aria-current="page">Pickup Game</a><a href="/the-house">The House</a><a href="/sponsor">Sponsor a Bed</a><a href="/roadmap">Roadmap</a><a href="/faq">FAQ</a><a href="/get-involved">Get Involved</a><a href="#give">Donate</a></div></details>
+      <details class="menu"><summary>Menu</summary><div class="menu-panel"><a href="https://www.project-pledge.com/">Home</a><a href="#top" aria-current="page">Pickup Game</a><a href="https://www.project-pledge.com/the-house">The House</a><a href="https://www.project-pledge.com/sponsor">Sponsor a Bed</a><a href="https://www.project-pledge.com/roadmap">Roadmap</a><a href="https://www.project-pledge.com/faq">FAQ</a><a href="https://www.project-pledge.com/get-involved">Get Involved</a><a href="#give">Donate</a></div></details>
     </nav>
   </div>
 </header>
@@ -68,7 +87,7 @@
   <div class="wrap">
     <p class="eyebrow">Saturday, May 15, 2027 · Clarksville, Tennessee</p>
     <h1>Rally Point Pickup Game.</h1>
-    <p class="lede">Veterans and community players, two mixed teams, one friendly pickup game. A community workout before kickoff and a huddle after, where veterans speak briefly about service, transition and peer support. Family friendly, with resource tables and a silent auction of donated sports memorabilia. <strong>Every dollar opens the door at Rally Point House.</strong></p>
+    <p class="lede">Veterans and community players, two mixed teams, one friendly pickup game. A community workout before kickoff and a huddle after, where veterans speak briefly about service, transition and peer support. Family friendly, with resource tables and a <a class="link" href="#auction">silent auction</a> of donated sports memorabilia and signed books. <strong>Every dollar opens the door at Rally Point House.</strong></p>
     <div class="actions">
       <a class="btn btn-sand" href="#give">Donate now</a>
       <a class="btn btn-ghost" href="#play">Play, watch or volunteer</a>
@@ -99,11 +118,19 @@
         <li><span class="k">Who watches</span><span class="v">Everyone. Free to watch, all ages, rain or shine.</span></li>
         <li><span class="k">Goal</span><span class="v"><b>$25,000</b>, the startup fund for Rally Point House.</span></li>
       </ul>
-      <div class="free">
-        <p class="eyebrow">Special guest speaker</p>
-        <p class="big">Nate Boyer</p>
-        <p>U.S. Army Green Beret veteran. Former University of Texas walk-on and Seattle Seahawks long snapper. Cofounder, with Fox Sports' Jay Glazer, of Merging Vets and Players (MVP).</p>
-        <p>Nate speaks at the post-game huddle about service, transition and why no veteran should have to make the jump alone.</p>
+      <div class="speakers">
+        <div class="free">
+          <p class="eyebrow">Proposed special guest</p>
+          <p class="big">Nate Boyer</p>
+          <p>U.S. Army Green Beret veteran. Former University of Texas walk-on and Seattle Seahawks long snapper. Cofounder, with Fox Sports' Jay Glazer, of Merging Vets and Players (MVP).</p>
+          <p>Nate would speak at the post-game huddle about service, transition and why no veteran should have to make the jump alone.</p>
+        </div>
+        <div class="free">
+          <p class="eyebrow">Guest speaker</p>
+          <p class="big">Scott McEwen</p>
+          <p>Coauthor, with Chris Kyle, of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film.</p>
+          <p>Scott joins the post-game huddle and has donated signed books to the <a class="link" href="#auction">silent auction</a>.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -112,50 +139,74 @@
 <section class="band" id="give" aria-labelledby="give-title">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Play · Watch · Bid · Sponsor a bed</p>
+      <p class="eyebrow">Play · Watch · Bid · Sponsor a week</p>
       <h2 id="give-title">Help us reach $25,000 by game day.</h2>
-      <p>Residents of Rally Point House pay nothing, so every bed is paid for by people like you. $24 keeps a veteran housed, fed, safe and sober for the night. $720 sponsors a bed for a month.</p>
+      <p>Residents of Rally Point House pay nothing, so every week of stay is paid for by people like you. $350 sponsors one veteran for a week: a safe, sober bed, case management, drug testing and house safety.</p>
     </div>
     <div class="amounts">
       <div><span class="n">$25,000</span><span>Startup fund to open the house</span></div>
       <div><span class="n">8</span><span>Beds near Fort Campbell</span></div>
-      <div><span class="n">$720</span><span>Sponsors one bed for a month</span></div>
-      <div><span class="n">$24</span><span>Covers one veteran for one night</span></div>
+      <div><span class="n">$350</span><span>Sponsors one veteran for a week</span></div>
+      <div><span class="n">$1,400</span><span>Sponsors one veteran for a month</span></div>
     </div>
     <div class="give-soon" id="give-soon" hidden>
-      <b>Online giving opens soon.</b> Pledge now and we'll send you a secure giving link the day it's live. <a class="link" href="/get-involved#join-form">Pledge your gift</a>
+      <b>Online giving opens soon.</b> Pledge now and we'll send you a secure giving link the day it's live. <a class="link" href="https://www.project-pledge.com/get-involved#join-form">Pledge your gift</a>
     </div>
     <div class="gives">
       <article class="give feature">
-        <p class="give-per">Monthly</p>
-        <p class="give-amt">$720</p>
-        <h3>Sponsor a bed</h3>
-        <p>Covers one bed, every night of the month. Your name or your organization's goes on the bed.</p>
-        <a class="btn btn-sand" data-give="bed-monthly" href="/get-involved#join-form">Sponsor a bed</a>
-      </article>
-      <article class="give">
-        <p class="give-per">Monthly</p>
-        <p class="give-amt">$180</p>
-        <h3>Share a bed</h3>
-        <p>One quarter of a bed. A team, a post or four friends cover it together.</p>
-        <a class="btn btn-solid" data-give="share-monthly" href="/get-involved#join-form">Give monthly</a>
+        <p class="give-per">One time</p>
+        <p class="give-amt">$350</p>
+        <h3>Sponsor a week</h3>
+        <p>A full week in the house for one veteran. No nightly rent and no pressure to leave after one night.</p>
+        <a class="btn btn-sand" data-give="week" href="https://www.project-pledge.com/get-involved#join-form">Sponsor a week</a>
       </article>
       <article class="give">
         <p class="give-per">One time</p>
-        <p class="give-amt">$24</p>
-        <h3>One night</h3>
-        <p>Keeps one veteran housed, fed, safe and sober for the night.</p>
-        <a class="btn btn-solid" data-give="night" href="/get-involved#join-form">Give $24</a>
+        <p class="give-amt">$1,400</p>
+        <h3>Sponsor a month</h3>
+        <p>Four weeks: enough time to get benefits filed and a job search started.</p>
+        <a class="btn btn-solid" data-give="month" href="https://www.project-pledge.com/get-involved#join-form">Sponsor a month</a>
+      </article>
+      <article class="give">
+        <p class="give-per">Recurring</p>
+        <p class="give-amt">$350/wk</p>
+        <h3>Standing sponsor</h3>
+        <p>Cover a week, every week, billed monthly. A team, a post or a business can share it.</p>
+        <a class="btn btn-solid" data-give="weekly" href="https://www.project-pledge.com/get-involved#join-form">Become a sponsor</a>
       </article>
       <article class="give">
         <p class="give-per">One time · You choose</p>
         <p class="give-amt">Any</p>
         <h3>Fund the house</h3>
         <p>Goes straight to the $25,000 startup fund: deposit, beds and furniture.</p>
-        <a class="btn btn-solid" data-give="custom" href="/get-involved#join-form">Give any amount</a>
+        <a class="btn btn-solid" data-give="custom" href="https://www.project-pledge.com/get-involved#join-form">Give any amount</a>
       </article>
     </div>
     <p class="fine pickup-fine">Secure checkout through Stripe with an emailed receipt. The Service to Stability Project is a Tennessee nonprofit in formation; whether gifts are tax-deductible depends on the IRS approving our 501(c)(3) status, and your receipt will say so. Prefer a check? Mail it to The Service to Stability Project, 131 Dean Dr PMB #755, Clarksville, TN 37040, with "Pickup Game" on the memo line.</p>
+  </div>
+</section>
+
+<section class="block" id="auction" aria-labelledby="auction-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Silent auction</p>
+      <h2 id="auction-title">Pledged auction items.</h2>
+      <p>Bid on game day at Fortera Stadium. Bidding closes by 2:00 PM, and every dollar goes to Rally Point House. More items are added as they're pledged.</p>
+    </div>
+    <div class="lots">
+      <article class="lot">
+        <p class="give-per">Signed books</p>
+        <h3>Signed books from Scott McEwen</h3>
+        <p>Donated by game-day guest speaker Scott McEwen, coauthor with Chris Kyle of <cite>American Sniper</cite>, the #1 New York Times bestseller behind the Clint Eastwood film.</p>
+        <span class="lot-tag">Pledged</span>
+      </article>
+      <article class="lot lot-open">
+        <p class="give-per">Your item here</p>
+        <h3>Pledge an auction item</h3>
+        <p>Signed jerseys, balls, cards, game-worn gear, books, experiences or gift certificates. We'll credit you on this page and at the auction table.</p>
+        <a class="link arrow" href="mailto:contact@servicetostability.org?subject=Pickup%20Game%3A%20Auction%20item">Pledge an item</a>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -218,13 +269,13 @@
         <p class="give-per">The cause</p>
         <h3>Rally Point House</h3>
         <p>Free, structured, sober transitional housing for eight veterans near Fort Campbell. Residents pay nothing and get a safe bed, a peer community and a path to work, benefits and a home of their own. The game's $25,000 goal is the startup fund that opens the door.</p>
-        <a class="link arrow" href="/the-house">See the house</a>
+        <a class="link arrow" href="https://www.project-pledge.com/the-house">See the house</a>
       </article>
       <article class="partner">
         <p class="give-per">The nonprofit</p>
         <h3>The Service to Stability Project</h3>
         <p>A Clarksville, Tennessee nonprofit in formation, building veteran transitional living and support, from service to stability. Bed 1 is already covered by founding sponsor 4everbound.</p>
-        <a class="link arrow" href="/">About the project</a>
+        <a class="link arrow" href="https://www.project-pledge.com/">About the project</a>
       </article>
       <article class="partner">
         <p class="give-per">The community</p>
@@ -306,9 +357,10 @@
   </div>
 </section>
 <script src="/donate-config.js"></script>
+<script src="/rally-point/give-config.js"></script>
 <script>
 (function () {
-  var cfg = window.STS_GIVE || {}, missing = false;
+  var cfg = Object.assign({}, window.STS_GIVE || {}, window.RP_GIVE || {}), missing = false;
   document.querySelectorAll('[data-give]').forEach(function (a) {
     var url = cfg[a.getAttribute('data-give')];
     if (url && /^https:\/\/(buy|donate)\.stripe\.com\//.test(url)) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
@@ -324,11 +376,11 @@
       <div class="lockup"><img src="/assets/logo-full-white.png" alt="The Service to Stability Project: veteran transitional living and support" width="900" height="190"></div>
       <div>
         <h4>The project</h4>
-        <ul><li><a href="/the-house">The house</a></li><li><a href="/roadmap">Roadmap</a></li><li><a href="/faq">FAQ</a></li></ul>
+        <ul><li><a href="https://www.project-pledge.com/the-house">The house</a></li><li><a href="https://www.project-pledge.com/roadmap">Roadmap</a></li><li><a href="https://www.project-pledge.com/faq">FAQ</a></li></ul>
       </div>
       <div>
         <h4>Get involved</h4>
-        <ul><li><a href="/pickup">Rally Point Pickup Game</a></li><li><a href="/donate">Donate</a></li><li><a href="/sponsor">Sponsor a bed</a></li><li><a href="/get-involved">Join the founding list</a></li><li>Veterans Crisis Line: 988, press 1</li><li>Homeless veterans: 877-424-3838</li></ul>
+        <ul><li><a href="https://www.project-pledge.com/donate">Donate</a></li><li><a href="https://www.project-pledge.com/sponsor">Sponsor a bed</a></li><li><a href="https://www.project-pledge.com/get-involved">Join the founding list</a></li><li>Veterans Crisis Line: 988, press 1</li><li>Homeless veterans: 877-424-3838</li></ul>
       </div>
       <div>
         <h4>Contact</h4>
