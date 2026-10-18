@@ -13,6 +13,7 @@ Plain static HTML and CSS. No build step.
 | `faq.html` | FAQ |
 | `get-involved.html` | Founding-list form and contact details |
 | `donate.html` | Donate page (Stripe Payment Links) |
+| `pickup.html` | Rally Point Pickup Game event page (served at `/pickup`), with donate cards, partners, MVP chapters and help links |
 | `donate-config.js` | Paste Stripe Payment Link URLs here to turn on online giving |
 | `styles.css` | Shared styles (brand tokens at the top) |
 | `assets/` | White logo lockups for the navy header and footer |
