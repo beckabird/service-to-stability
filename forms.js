@@ -76,7 +76,7 @@
     done.hidden = false;
     done.setAttribute('tabindex', '-1');
     done.focus();
-    done.scrollIntoView({ block: 'center' });
+    done.scrollIntoView({ block: 'start' });
   }
 
   function init(form) {
