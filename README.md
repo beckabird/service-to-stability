@@ -16,6 +16,7 @@ Plain static HTML and CSS. No build step.
 | `donate-config.js` | Stripe Payment Link URLs for every giving button on the site |
 | `give.js` | Wires `data-give` buttons to those links, or to the pledge form when a link is empty |
 | `forms-config.js` | Where form submissions go: an HTTPS endpoint, or a pre-filled email to the inbox |
+| `motion.js` | Scroll reveal for content below the fold (skipped under reduced motion); page cross-fades are pure CSS in `styles.css` |
 | `forms.js` | Validation, errors, loading, success and failure states for every `data-form` form |
 | `rally-point/` | The Rally Point House site (8 pages, served at /rally-point) |
 | `styles.css` | Shared styles (brand tokens at the top) |
