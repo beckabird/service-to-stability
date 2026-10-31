@@ -35,8 +35,8 @@
     </a>
     <nav class="nav" aria-label="Primary">
       <a class="nl" href="/rally-point/the-house">The House</a><a class="nl" href="/rally-point/how-it-works">How It Works</a><a class="nl" href="/rally-point/partners">For Partners</a><a class="nl" href="/rally-point/sponsor">Sponsor a Week</a><a class="nl" href="/rally-point/faq">FAQ</a>
-      <a class="btn btn-sand" href="/rally-point/refer">Refer a Veteran</a>
-      <details class="menu"><summary>Menu</summary><div class="menu-panel"><a href="/rally-point">Home</a><a href="/rally-point/the-house">The House</a><a href="/rally-point/how-it-works">How It Works</a><a href="/rally-point/partners">For Partners</a><a href="/rally-point/sponsor">Sponsor a Week</a><a href="/rally-point/faq">FAQ</a><a href="/rally-point/lead-the-house">Lead the House</a><a href="/rally-point/refer" aria-current="page">Refer a Veteran</a></div></details>
+      <a class="btn btn-sand" href="/rally-point/refer">Refer a veteran</a>
+      <details class="menu"><summary>Menu</summary><div class="menu-panel"><a href="/rally-point">Home</a><a href="/rally-point/the-house">The House</a><a href="/rally-point/how-it-works">How It Works</a><a href="/rally-point/partners">For Partners</a><a href="/rally-point/sponsor">Sponsor a Week</a><a href="/rally-point/faq">FAQ</a><a href="/rally-point/lead-the-house">Lead the House</a><a href="/rally-point/refer" aria-current="page">Refer a veteran</a></div></details>
     </nav>
   </div>
 </header>
@@ -50,7 +50,7 @@
     <ul class="checks"><li><span>Contact details and timing are all we need now</span></li><li><span><b>No medical, legal or criminal details</b>; we'll cover what's needed by phone</span></li><li><span>We reply before opening day, in the order received</span></li></ul>
     <div class="contact-card"><p class="eyebrow">Or reach intake directly</p><dl><dt>Email</dt><dd><a href="mailto:contact@servicetostability.org">contact@servicetostability.org</a></dd><dt>Phone</dt><dd><a href="tel:+19313244070">931-324-4070</a></dd></dl></div>
   </div>
-  <form class="card" id="rp-form" novalidate data-form="rally-point" data-subject="Rally Point House" data-done="rp-done" data-done-title="You're on the opening list." data-done-text="Our intake director will reach out before the house opens, in the order we receive requests.">
+  <form class="card" id="rp-form" novalidate data-form="rally-point" data-subject="Rally Point House" data-done="rp-done" data-done-title="You're on the opening list." data-done-text="We'll call you before the house opens, in the order requests come in.">
     <div class="field"><label for="f-who">I am</label><select id="f-who" name="who" data-label="I am" data-hash-select data-gift-role="sponsor">
       <option value="referrer">Referring a veteran (VA, treatment, court, other)</option>
       <option value="veteran">A veteran looking for housing</option>
@@ -59,18 +59,18 @@
       <option value="manager">Applying to be House Manager</option>
     </select></div>
     <div class="row">
-      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required maxlength="120" data-label="Your name"></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" data-label="Phone" data-check="phone"></div>
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required maxlength="120" data-label="Your name" data-required="Add your name so we know who to call."></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" data-label="Phone" data-check="phone" data-required="Add a phone number so we can call you back."></div>
     </div>
     <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" data-label="Email" data-check="email"></div>
-    <div class="field" id="org-field"><label for="f-org">Organization <span class="opt">(for referrers)</span></label><input id="f-org" name="org" autocomplete="organization" maxlength="160" data-label="Organization" placeholder="VA clinic, treatment center, court, agency"></div>
+    <div class="field" id="org-field"><label for="f-org">Organization</label><input id="f-org" name="org" autocomplete="organization" maxlength="160" data-label="Organization" placeholder="VA clinic, court, treatment center"></div>
     <div class="row">
       <div class="field"><label for="f-county">County</label><input id="f-county" name="county" maxlength="60" data-label="County" placeholder="Montgomery"></div>
-      <div class="field"><label for="f-timing">Timing</label><select id="f-timing" name="timing" data-label="Timing"><option>As soon as you open</option><option>Within 30 days of opening</option><option>Planning ahead</option></select></div>
+      <div class="field"><label for="f-timing">How soon?</label><select id="f-timing" name="timing" data-label="How soon"><option>As soon as you open</option><option>Within 30 days of opening</option><option>Planning ahead</option></select></div>
     </div>
-    <div class="field"><label for="f-note">Anything we should know?</label><textarea id="f-note" name="note" maxlength="2000" data-label="Note" placeholder="Best time to call, discharge date, why you'd be a good House Manager"></textarea><span class="privacy">Please don't include medical or legal details.</span></div>
+    <div class="field"><label for="f-note">Anything we should know?</label><textarea id="f-note" name="note" maxlength="2000" data-label="Note" placeholder="Best time to call, discharge date"></textarea><span class="privacy">Please don't include medical or legal details.</span></div>
     <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-    <button class="btn btn-sand" type="submit">Send</button>
+    <button class="btn btn-sand" type="submit">Join the opening list</button>
   </form>
   <div class="done" id="rp-done" hidden role="status" aria-live="polite"></div>
 </div></section>

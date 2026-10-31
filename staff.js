@@ -41,7 +41,7 @@
     if (/fetch|network|Failed/i.test(m)) return 'We couldn’t reach the server. Check your connection and try again.';
     if (/JWT|expired|session/i.test(m)) return 'Your sign-in expired. Sign in again to continue.';
     if (/rate|too many|security purposes/i.test(m)) return 'Too many tries in a short time. Wait a minute, then try again.';
-    return 'Something went wrong: ' + esc(m || 'unknown error') + '. Try again.';
+    return 'That didn\u2019t save. Try again, and if it keeps happening, sign out and back in. (' + esc(m || 'no details') + ')';
   }
 
   // ---------- auth ----------
@@ -152,7 +152,7 @@
         ? '<h3>Nothing here yet.</h3><p>When someone joins the founding list or the Rally Point opening list, it shows up here.</p>'
         : state.q || state.form !== 'all'
           ? '<h3>No matches.</h3><p>Try a different search or show both forms.</p>'
-          : state.status === 'new' ? '<h3>You’re caught up.</h3><p>No new messages right now.</p>' : '<h3>Nothing in this list.</h3>';
+          : state.status === 'new' ? '<h3>You’re caught up.</h3><p>No new messages right now.</p>' : '<h3>No messages here.</h3>';
       empty.hidden = false;
     } else {
       empty.hidden = true;
@@ -287,7 +287,7 @@
     if (window.innerWidth < 860) $('[data-gift-form-wrap]').scrollIntoView({ block: 'start' });
     var dg = $('[data-delete-gift]', f);
     if (dg) dg.onclick = async function () {
-      if (dg.dataset.armed !== '1') { dg.dataset.armed = '1'; dg.textContent = 'Tap again to delete'; return; }
+      if (dg.dataset.armed !== '1') { dg.dataset.armed = '1'; dg.textContent = 'Yes, delete this gift'; return; }
       var r = await sb.from('gifts').delete().eq('id', g.id);
       if (r.error) { alertMsg($('[data-gift-alert]'), friendly(r.error)); return; }
       $('[data-gift-form-wrap]').hidden = true; toast('Gift deleted.'); loadGifts();
@@ -336,7 +336,7 @@
   }
   $('[data-staff-list]').addEventListener('click', async function (e) {
     var b = e.target.closest('[data-remove-staff]'); if (!b) return;
-    if (b.dataset.armed !== '1') { b.dataset.armed = '1'; b.textContent = 'Tap again to remove'; return; }
+    if (b.dataset.armed !== '1') { b.dataset.armed = '1'; b.textContent = 'Yes, remove'; return; }
     var r = await sb.from('staff').delete().eq('email', b.getAttribute('data-remove-staff'));
     if (r.error) { alertMsg($('[data-staff-alert]'), friendly(r.error)); return; }
     toast('Removed from the staff list.'); loadStaff();

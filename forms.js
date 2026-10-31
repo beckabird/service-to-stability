@@ -35,9 +35,9 @@
   function check(field) {
     var v = field.value.trim();
     var label = field.getAttribute('data-label') || 'This field';
-    if (field.required && !v) return label + ' is required.';
+    if (field.required && !v) return field.getAttribute('data-required') || 'Add your ' + label.toLowerCase() + '.';
     if (v && field.getAttribute('data-check') === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return 'Enter an email address like name@example.org.';
-    if (v && field.getAttribute('data-check') === 'phone' && v.replace(/\D/g, '').length < 10) return 'Enter a 10-digit phone number, including area code.';
+    if (v && field.getAttribute('data-check') === 'phone' && v.replace(/\D/g, '').length < 10) return 'Enter a 10 digit phone number, with area code.';
     return '';
   }
 
@@ -107,7 +107,7 @@
         var msg = check(f); setError(f, msg); if (msg) bad.push(f);
       });
       if (bad.length) {
-        summary.textContent = bad.length === 1 ? 'Fix the highlighted field to continue.' : 'Fix the ' + bad.length + ' highlighted fields to continue.';
+        summary.textContent = bad.length === 1 ? 'One field needs a fix before you send. It\u2019s marked above.' : bad.length + ' fields need a fix before you send. They\u2019re marked above.';
         summary.hidden = false;
         bad[0].focus();
         return;
@@ -147,7 +147,7 @@
           showDone(form, '<h3>' + esc(heading) + '</h3><p>' + esc(after) + '</p>' + crisis);
         }).catch(function () {
           btn.disabled = false; btn.textContent = btnText; form.removeAttribute('aria-busy');
-          summary.innerHTML = 'We couldn\'t send that. Your answers are still here: try again, or email <a href="mailto:' + esc(cfg.inbox) + '">' + esc(cfg.inbox) + '</a> or call ' + esc(cfg.phone) + '.';
+          summary.innerHTML = 'We couldn\'t send that. Your answers are still here. Try again, or email <a href="mailto:' + esc(cfg.inbox) + '">' + esc(cfg.inbox) + '</a> or call ' + esc(cfg.phone) + '.';
           summary.hidden = false; btn.focus();
         });
         return;
