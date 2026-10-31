@@ -457,3 +457,10 @@ main:focus { outline: none; }
 .meter[data-state="error"] .meter-status { color: var(--sand); }
 @keyframes pulse { 50% { opacity: .55; } }
 @media (prefers-reduced-motion: reduce) { .meter[data-state="loading"] .meter-figs b { animation: none; } }
+/* Spacing modifiers (replace one-off inline styles) */
+.section-head.is-compact { margin-bottom: var(--s-5); }
+.section-head.is-flush { margin-bottom: 0; }
+.actions.is-spaced { margin-top: var(--s-6); }
+.gap.is-flush { margin-top: 0; }
+.help-card .link, .door p .link { display: inline-block; padding: 10px 9px; margin: -10px -9px; }
+.checks.is-measure { max-width: 720px; }

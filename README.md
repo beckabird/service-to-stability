@@ -63,3 +63,13 @@ Project `eatrpzvogytrcpnprvby` in the "beckabird's projects" Supabase org, conne
 - `fundraising_progress()`: the one public read. Returns totals and bed credits a sponsor agreed to show; no contact details.
 
 `forms-config.js` holds the project URL and the public publishable key. That key is safe in the browser: row level security decides what it can do. Never put the service role or secret key in this repo.
+
+## Editing the header, crisis strip or footer
+
+They are shared by every page. Edit the file in `layout/` (`main-*` for the main site, `rally-point-*` for /rally-point), then run:
+
+```
+python3 tools/sync_layout.py
+```
+
+It rewrites every page and marks the current page in the nav. `python3 tools/sync_layout.py --check` reports any page that has drifted without changing anything. `layout/` and `tools/` are not deployed.
