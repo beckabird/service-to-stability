@@ -464,3 +464,4 @@ main:focus { outline: none; }
 .gap.is-flush { margin-top: 0; }
 .help-card .link, .door p .link { display: inline-block; padding: 10px 9px; margin: -10px -9px; }
 .checks.is-measure { max-width: 720px; }
+.amounts-math { color: var(--band-muted); font-size: var(--fs-sm); max-width: 70ch; margin-top: calc(var(--s-5) * -1); }

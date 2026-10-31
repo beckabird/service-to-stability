@@ -40,7 +40,7 @@ Live at **https://www.project-pledge.com** (Vercel project `service-to-stability
 
 ## Turning on donations
 
-1. In Stripe, create four Payment Links: $350 one time (week), $1,400 one time (month), $350 a week recurring (weekly), and one time with "customer chooses amount" (custom).
+1. In Stripe, create four Payment Links: $226 one time (week), $904 one time (month), $226 a week recurring (weekly), and one time with "customer chooses amount" (custom).
 2. Paste each `https://buy.stripe.com/...` URL into `donate-config.js` and push. Buttons switch from "Pledge this gift" to live checkout automatically.
 
 ## Before launch
