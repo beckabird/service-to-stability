@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Staff Inbox · Service to Stability</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Sign-in for The Service to Stability Project staff: founding list, referrals, pledges and gifts.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#163A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/staff.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body class="staff">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="The Service to Stability Project, home">
+      <img src="/assets/logo-horizontal-white.png" alt="The Service to Stability Project" width="640" height="125">
+    </a>
+    <div class="staff-who" data-who hidden>
+      <span data-who-email></span>
+      <button type="button" class="btn btn-ghost" data-signout>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+  <!-- Booting: checking for a session -->
+  <section class="staff-view" data-view="boot">
+    <div class="wrap staff-narrow"><h1 class="staff-loading staff-boot" role="status">Checking your sign-in</h1></div>
+  </section>
+
+  <!-- Sign in -->
+  <section class="staff-view" data-view="signin" hidden aria-labelledby="signin-title">
+    <div class="wrap staff-narrow">
+      <p class="eyebrow">Staff</p>
+      <h1 id="signin-title">Sign in to the inbox.</h1>
+      <p class="staff-lede">Enter your work email and we'll send you a sign-in link. No password needed.</p>
+      <div class="form-alert" role="alert" data-signin-alert hidden></div>
+      <form class="card" data-signin novalidate>
+        <div class="field">
+          <label for="s-email">Email</label>
+          <input id="s-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200">
+        </div>
+        <button class="btn btn-sand" type="submit">Email me a sign-in link</button>
+        <p class="privacy">Only people on the staff list can see the inbox.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Link sent -->
+  <section class="staff-view" data-view="sent" hidden aria-labelledby="sent-title">
+    <div class="wrap staff-narrow">
+      <div class="done" tabindex="-1" data-sent-panel>
+        <h3 id="sent-title">Check your email.</h3>
+        <p>We sent a sign-in link to <b data-sent-email></b>. Open it on this device and you'll land back here, signed in. The link works once and expires in an hour.</p>
+        <p class="done-actions">
+          <button type="button" class="btn btn-outline" data-resend>Send a new link</button>
+          <button type="button" class="link-btn" data-change-email>Use a different email</button>
+        </p>
+        <p class="done-fallback" role="status" data-resend-status></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signed in, not on the staff list -->
+  <section class="staff-view" data-view="denied" hidden aria-labelledby="denied-title">
+    <div class="wrap staff-narrow">
+      <p class="eyebrow">Staff</p>
+      <h1 id="denied-title">This email isn't on the staff list.</h1>
+      <p class="staff-lede">You're signed in as <b data-denied-email></b>, but only staff can see the inbox. Ask a staff member to add you under Settings, then sign in again.</p>
+      <p class="actions"><button type="button" class="btn btn-sand" data-signout>Sign out</button></p>
+    </div>
+  </section>
+
+  <!-- The app -->
+  <section class="staff-view" data-view="app" hidden>
+    <div class="wrap">
+      <div class="staff-top">
+        <h1>Staff inbox</h1>
+        <nav class="tabs" role="tablist" aria-label="Staff sections">
+          <button type="button" role="tab" id="tab-inbox" aria-controls="panel-inbox" aria-selected="true" data-tab="inbox">Inbox <span class="pill" data-new-count hidden></span></button>
+          <button type="button" role="tab" id="tab-gifts" aria-controls="panel-gifts" aria-selected="false" data-tab="gifts" tabindex="-1">Gifts</button>
+          <button type="button" role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" data-tab="settings" tabindex="-1">Settings</button>
+        </nav>
+      </div>
+
+      <!-- Inbox -->
+      <div role="tabpanel" id="panel-inbox" aria-labelledby="tab-inbox" data-panel="inbox">
+        <div class="toolbar">
+          <div class="chips" role="group" aria-label="Filter by status">
+            <button type="button" class="chip" aria-pressed="true" data-status="new">New</button>
+            <button type="button" class="chip" aria-pressed="false" data-status="contacted">Contacted</button>
+            <button type="button" class="chip" aria-pressed="false" data-status="closed">Closed</button>
+            <button type="button" class="chip" aria-pressed="false" data-status="all">All</button>
+          </div>
+          <div class="field toolbar-field">
+            <label for="f-form" class="sr-only">Which form</label>
+            <select id="f-form" data-form-filter>
+              <option value="all">Both forms</option>
+              <option value="founding-list">Founding list</option>
+              <option value="rally-point">Rally Point</option>
+            </select>
+          </div>
+          <div class="field toolbar-field toolbar-search">
+            <label for="f-search" class="sr-only">Search</label>
+            <input id="f-search" type="search" placeholder="Search names, emails, notes" data-search>
+          </div>
+        </div>
+        <div class="staff-split">
+          <div class="list-col">
+            <p class="staff-loading" role="status" data-inbox-loading>Loading messages</p>
+            <div class="form-alert" role="alert" data-inbox-error hidden></div>
+            <div class="empty" data-inbox-empty hidden></div>
+            <ul class="msg-list" data-inbox-list></ul>
+          </div>
+          <div class="detail-col" data-detail hidden></div>
+        </div>
+      </div>
+
+      <!-- Gifts -->
+      <div role="tabpanel" id="panel-gifts" aria-labelledby="tab-gifts" data-panel="gifts" hidden>
+        <div class="gift-summary" data-gift-summary></div>
+        <div class="staff-split">
+          <div class="list-col">
+            <div class="list-head"><h2>Recorded gifts</h2><button type="button" class="btn btn-sand" data-new-gift>Record a gift</button></div>
+            <p class="staff-loading" role="status" data-gifts-loading>Loading gifts</p>
+            <div class="form-alert" role="alert" data-gifts-error hidden></div>
+            <div class="empty" data-gifts-empty hidden><h3>No gifts recorded yet.</h3><p>When someone pledges or gives, record it here. It updates the meter on the Sponsor page.</p></div>
+            <ul class="msg-list" data-gifts-list></ul>
+          </div>
+          <div class="detail-col" data-gift-form-wrap hidden>
+            <form class="card" data-gift-form novalidate>
+              <h2 data-gift-form-title>Record a gift</h2>
+              <div class="field"><label for="g-donor">Donor name</label><input id="g-donor" name="donor_name" required maxlength="160" data-label="Donor name"></div>
+              <div class="field"><label for="g-public">Name on the site <span class="opt">(optional)</span></label><input id="g-public" name="public_name" maxlength="80" data-label="Name on the site" placeholder="Leave blank to keep it private"></div>
+              <div class="row">
+                <div class="field"><label for="g-amount">Amount in dollars <span class="opt">(optional)</span></label><input id="g-amount" name="amount" inputmode="decimal" maxlength="12" data-label="Amount" placeholder="350"></div>
+                <div class="field"><label for="g-status">Status</label><select id="g-status" name="status"><option value="pledged">Pledged</option><option value="received">Received</option></select></div>
+              </div>
+              <div class="field"><label for="g-bed">Sponsors a bed <span class="opt">(optional)</span></label><select id="g-bed" name="bed"><option value="">No bed</option></select></div>
+              <div class="field"><label for="g-note">Note <span class="opt">(optional)</span></label><textarea id="g-note" name="note" maxlength="2000" data-label="Note"></textarea></div>
+              <div class="form-alert" role="alert" data-gift-alert hidden></div>
+              <div class="form-actions">
+                <button class="btn btn-sand" type="submit">Save gift</button>
+                <button class="btn btn-outline" type="button" data-cancel-gift>Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div role="tabpanel" id="panel-settings" aria-labelledby="tab-settings" data-panel="settings" hidden>
+        <div class="settings-grid">
+          <form class="card" data-goal-form novalidate>
+            <h2>Founding goal</h2>
+            <p class="privacy">The total shown on the Sponsor page meter.</p>
+            <div class="field"><label for="st-goal">Goal in dollars</label><input id="st-goal" name="goal" inputmode="numeric" maxlength="9" required data-label="Goal"></div>
+            <div class="form-alert" role="alert" data-goal-alert hidden></div>
+            <button class="btn btn-sand" type="submit">Save goal</button>
+          </form>
+          <div class="card">
+            <h2>Staff list</h2>
+            <p class="privacy">These emails can sign in and see everything in the inbox.</p>
+            <p class="staff-loading" role="status" data-staff-loading>Loading staff</p>
+            <ul class="staff-list" data-staff-list></ul>
+            <form class="inline-form" data-staff-form novalidate>
+              <div class="field"><label for="st-new">Add a staff email</label><input id="st-new" type="email" name="email" maxlength="200" required data-label="Email"></div>
+              <button class="btn btn-outline" type="submit">Add</button>
+            </form>
+            <div class="form-alert" role="alert" data-staff-alert hidden></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toast" role="status" aria-live="polite" data-toast hidden></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="/forms-config.js"></script>
+<script src="/staff.js"></script>
+</body>
+</html>

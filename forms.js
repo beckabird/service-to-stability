@@ -118,12 +118,31 @@
       var after = form.getAttribute('data-done-text') || '';
       var crisis = '<p class="done-help">If you or a veteran you know needs help today, call 988 and press 1, or the VA homeless veteran line at 877-424-3838.</p>';
 
-      if (cfg.endpoint) {
+      if (cfg.supabaseUrl && cfg.supabaseKey || cfg.endpoint) {
         btn.disabled = true; btn.textContent = 'Sending…'; form.setAttribute('aria-busy', 'true');
-        fetch(cfg.endpoint, {
-          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ form: name, page: location.pathname, submitted_at: new Date().toISOString(), fields: c.data })
-        }).then(function (r) {
+        var req;
+        if (cfg.supabaseUrl && cfg.supabaseKey) {
+          var raw = {};
+          Array.prototype.forEach.call(form.elements, function (el) {
+            if (!el.name || el.name === 'company_website' || el.closest('[hidden]')) return;
+            raw[el.name] = el.tagName === 'SELECT' ? el.options[el.selectedIndex].text : el.value.trim();
+          });
+          var g = /[?&]gift=([a-z]+)/.exec(location.search);
+          var row = { form: name, page: location.pathname, role: raw.role || raw.who || null, name: raw.name,
+            email: raw.email || null, phone: raw.phone || null, org: raw.org || null, county: raw.county || null,
+            timing: raw.timing || null, note: raw.note || null, gift: g && GIFTS[g[1]] ? g[1] : null };
+          req = fetch(cfg.supabaseUrl + '/rest/v1/submissions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'apikey': cfg.supabaseKey, 'Prefer': 'return=minimal' },
+            body: JSON.stringify(row)
+          });
+        } else {
+          req = fetch(cfg.endpoint, {
+            method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ form: name, page: location.pathname, submitted_at: new Date().toISOString(), fields: c.data })
+          });
+        }
+        req.then(function (r) {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           showDone(form, '<h3>' + esc(heading) + '</h3><p>' + esc(after) + '</p>' + crisis);
         }).catch(function () {

@@ -20,6 +20,8 @@ Plain static HTML and CSS. No build step.
 | `favicon.ico`, `favicon.svg`, `assets/icons/`, `site.webmanifest` | Favicon set and app icons from the logo mark |
 | `assets/og-*.png` | 1200×630 share images for links on social and in messages |
 | `nav.js` | Mobile menu: Escape and outside-tap to close, aria-expanded |
+| `staff.html`, `staff.js`, `staff.css` | Staff inbox at /staff: magic-link sign-in, submissions, gifts, goal and staff list (not linked publicly, not indexed) |
+| `progress.js` | Live fundraising meter and bed board on /sponsor |
 | `motion.js` | Scroll reveal for content below the fold (skipped under reduced motion); page cross-fades are pure CSS in `styles.css` |
 | `forms.js` | Validation, errors, loading, success and failure states for every `data-form` form |
 | `rally-point/` | The Rally Point House site (8 pages, served at /rally-point) |
@@ -49,3 +51,15 @@ Live at **https://www.project-pledge.com** (Vercel project `service-to-stability
 ## Drafts
 
 `drafts/` is excluded from deploys by `.vercelignore`, so nothing in it is ever live. `drafts/pickup-game.html` is the Rally Point Pickup Game concept page (shared privately, not on the site). `/pickup` temporarily redirects home. To launch it: move it to the repo root as `pickup.html`, drop the concept banner and noindex tag, add it back to the footers and `sitemap.xml`, and remove the redirect from `vercel.json`.
+
+## Database (Supabase, via Vercel Marketplace)
+
+Project `eatrpzvogytrcpnprvby` in the "beckabird's projects" Supabase org, connected to the Vercel project.
+
+- `submissions`: every founding-list and Rally Point form entry. The public can insert only; it can never read, edit or delete.
+- `gifts`: pledges and gifts staff record. Drives the meter and bed board on /sponsor.
+- `settings`: the founding goal (`goal_cents`).
+- `staff`: emails allowed into /staff. Manage it from Settings in the inbox.
+- `fundraising_progress()`: the one public read. Returns totals and bed credits a sponsor agreed to show; no contact details.
+
+`forms-config.js` holds the project URL and the public publishable key. That key is safe in the browser: row level security decides what it can do. Never put the service role or secret key in this repo.
