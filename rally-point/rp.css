@@ -22,3 +22,5 @@
 #rp-form { position: relative; }
 @media (max-width: 860px) { .rp-split { grid-template-columns: 1fr; gap: 28px; } .rp-gives { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .rp-word strong { font-size: 18px; } .rp-word em { display: none; } }
+.rp-team { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+@media (max-width: 860px) { .rp-team { grid-template-columns: minmax(0, 1fr); } }
