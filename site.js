@@ -1,3 +1,37 @@
+// Site-wide behavior, one file: start each page at the top, the mobile menu, and scroll reveal.
+
+// Start at the top on every page view, unless the URL points at a section.
+(function () {
+  try { history.scrollRestoration = 'manual'; } catch (e) {}
+  function toTop() {
+    var id = (location.hash || '').slice(1);
+    if (id && document.getElementById(id)) return;
+    window.scrollTo(0, 0);
+  }
+  toTop();
+  window.addEventListener('pageshow', toTop);
+  window.addEventListener('load', toTop);
+})();
+
+// Mobile menu: close with Escape (focus returns to the button), on an outside tap, or after choosing a link.
+(function () {
+  var menu = document.querySelector('details.menu');
+  if (!menu) return;
+  var summary = menu.querySelector('summary');
+  summary.setAttribute('aria-label', 'Menu');
+  function sync() { summary.setAttribute('aria-expanded', menu.open ? 'true' : 'false'); }
+  menu.addEventListener('toggle', sync); sync();
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.open) { menu.open = false; summary.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (menu.open && !menu.contains(e.target)) menu.open = false;
+  });
+  menu.querySelectorAll('.menu-panel a').forEach(function (a) {
+    a.addEventListener('click', function () { menu.open = false; });
+  });
+})();
+
 // Scroll reveal. Only elements that start below the fold are hidden, so the first frame is always complete,
 // and nothing inside a form, its success panel or a hero ever waits on motion.
 (function () {

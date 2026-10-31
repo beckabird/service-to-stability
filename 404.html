@@ -11,9 +11,8 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#163A5F">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
+<link rel="preload" href="/assets/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
 </head>
@@ -30,7 +29,7 @@
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="/" aria-label="The Service to Stability Project, home">
-      <img src="/assets/logo-horizontal-white.png" alt="The Service to Stability Project" width="640" height="125">
+      <img src="/assets/logo-horizontal-white.png" alt="The Service to Stability Project" width="452" height="88">
     </a>
     <nav class="nav" aria-label="Primary">
       <a class="nl" href="/the-house">The House</a><a class="nl" href="/sponsor">Sponsor a Bed</a><a class="nl" href="/roadmap">Roadmap</a><a class="nl" href="/faq">FAQ</a>
@@ -79,7 +78,7 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="lockup"><img src="/assets/logo-full-white.png" alt="The Service to Stability Project: veteran transitional living and support" width="900" height="190"></div>
+      <div class="lockup"><img src="/assets/logo-full-white.png" alt="The Service to Stability Project: veteran transitional living and support" width="720" height="152"></div>
       <div>
         <h2 class="fh">The project</h2>
         <ul><li><a href="/the-house">The house</a></li><li><a href="/rally-point">The Rally Point House</a></li><li><a href="/roadmap">Roadmap</a></li><li><a href="/faq">FAQ</a></li></ul>
@@ -96,20 +95,6 @@
     <div class="legal"><span>© 2026 The Service to Stability Project · Clarksville, Tennessee · Nonprofit in formation · Founding bed sponsor: <a href="https://4everbound.com" target="_blank" rel="noopener">4everbound</a></span><span>From service to stability.</span></div>
   </div>
 </footer>
-<script>
-(function () {
-  try { history.scrollRestoration = 'manual'; } catch (e) {}
-  function toTop() {
-    var id = (location.hash || '').slice(1);
-    if (id && document.getElementById(id)) return;
-    window.scrollTo(0, 0);
-  }
-  toTop();
-  window.addEventListener('pageshow', toTop);
-  window.addEventListener('load', toTop);
-})();
-</script>
-<script src="/nav.js" defer></script>
-<script src="/motion.js" defer></script>
+<script src="/site.js" defer></script>
 </body>
 </html>

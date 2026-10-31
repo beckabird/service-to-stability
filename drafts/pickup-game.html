@@ -9,12 +9,32 @@
 <meta property="og:title" content="Rally Point Pickup Game · Saturday, May 15, 2027">
 <meta property="og:description" content="Play, watch, bid or sponsor a bed. Free to watch, all ages, rain or shine at Fortera Stadium, Clarksville, TN. Goal: $25,000 to open Rally Point House.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
+<link rel="preload" href="/assets/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
 <style>
+/* Draft-only layout (moved out of the shared stylesheet) */
+.included .link { font-size: var(--fs-sm); margin-top: var(--s-1); justify-self: start; }
+.band .head { display: grid; gap: var(--s-4); max-width: 760px; }
+.band .head p { color: var(--band-muted); font-size: 19px; line-height: 1.55; }
+.band .give-soon { margin: 0; color: var(--fg); }
+.band .pickup-fine { margin-top: 0; color: var(--band-muted); }
+.partners { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+.partner { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2); padding: 28px; display: grid; gap: var(--s-3); align-content: start; min-width: 0; }
+.partner h3 { font-size: 24px; }
+.partner p { color: var(--muted); font-size: var(--fs-sm); line-height: 1.55; }
+.partner .link { justify-self: start; font-size: var(--fs-sm); text-decoration: none; display: inline-flex; gap: 8px; }
+.chapters { margin-top: var(--s-7); display: grid; gap: var(--s-3); }
+.chapters h3 { font-size: 24px; }
+.chapters > p { color: var(--muted); max-width: 65ch; }
+.chapter-list { list-style: none; margin: var(--s-2) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--heading); }
+.chapter-list li { padding: var(--s-4) var(--s-4) var(--s-4) 0; border-bottom: 1px solid var(--line); display: grid; gap: 2px; min-width: 0; }
+.chapter-list b { font-size: 19px; color: var(--heading); }
+.chapter-list span { font-size: 15px; color: var(--muted); }
+.chapter-list a { color: var(--sage-text); font-weight: 600; text-underline-offset: 3px; }
+.link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+@media (max-width: 860px) { .partners, .link-grid { grid-template-columns: 1fr; } .chapter-list { grid-template-columns: 1fr 1fr; } }
 .lots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .lot { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--sand); border-radius: 6px; padding: 26px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .lot.lot-open { border-style: dashed; border-top: 3px solid var(--sage); background: transparent; }
@@ -121,7 +141,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="https://www.project-pledge.com/" aria-label="The Service to Stability Project, home">
-      <img src="/assets/logo-horizontal-white.png" alt="The Service to Stability Project" width="640" height="125">
+      <img src="/assets/logo-horizontal-white.png" alt="The Service to Stability Project" width="452" height="88">
     </a>
     <nav class="nav" aria-label="Primary">
       <a class="nl" href="https://www.project-pledge.com/the-house">The House</a><a class="nl" href="https://www.project-pledge.com/sponsor">Sponsor a Bed</a><a class="nl" href="https://www.project-pledge.com/roadmap">Roadmap</a><a class="nl" href="https://www.project-pledge.com/faq">FAQ</a>
@@ -421,7 +441,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="lockup"><img src="/assets/logo-full-white.png" alt="The Service to Stability Project: veteran transitional living and support" width="900" height="190"></div>
+      <div class="lockup"><img src="/assets/logo-full-white.png" alt="The Service to Stability Project: veteran transitional living and support" width="720" height="152"></div>
       <div>
         <h2 class="fh">The project</h2>
         <ul><li><a href="https://www.project-pledge.com/the-house">The house</a></li><li><a href="https://www.project-pledge.com/roadmap">Roadmap</a></li><li><a href="https://www.project-pledge.com/faq">FAQ</a></li></ul>
@@ -438,7 +458,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <div class="legal"><span>© 2026 The Service to Stability Project · Clarksville, Tennessee · Nonprofit in formation · Presented with Foxhole Forum and Merging Vets and Players</span><span>From service to stability.</span></div>
   </div>
 </footer>
-<script src="/nav.js" defer></script>
-<script src="/motion.js" defer></script>
+<script src="/site.js" defer></script>
 </body>
 </html>
