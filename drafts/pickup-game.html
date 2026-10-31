@@ -206,8 +206,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <div><span class="n">$350</span><span>Sponsors one veteran for a week</span></div>
       <div><span class="n">$1,400</span><span>Sponsors one veteran for a month</span></div>
     </div>
-    <div class="give-soon" id="give-soon" hidden>
-      <b>Online giving opens soon.</b> Pledge now and we'll send you a secure giving link the day it's live. <a class="link" href="https://www.project-pledge.com/get-involved#join-form">Pledge your gift</a>
+    <div class="give-soon" data-show="pledge" hidden>
+      <b>Pledge your gift and we'll follow up personally</b> with a secure way to pay. <a class="link" href="https://www.project-pledge.com/get-involved#join-form">Pledge your gift</a>
     </div>
     <div class="gives">
       <article class="give feature">
@@ -414,18 +414,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   </div>
 </section>
 <script src="/donate-config.js"></script>
-<script src="/rally-point/give-config.js"></script>
-<script>
-(function () {
-  var cfg = Object.assign({}, window.STS_GIVE || {}, window.RP_GIVE || {}), missing = false;
-  document.querySelectorAll('[data-give]').forEach(function (a) {
-    var url = cfg[a.getAttribute('data-give')];
-    if (url && /^https:\/\/(buy|donate)\.stripe\.com\//.test(url)) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
-    else { missing = true; a.textContent = 'Pledge this gift'; }
-  });
-  if (missing) document.getElementById('give-soon').hidden = false;
-})();
-</script>
+<script src="/give.js"></script>
 </main>
 <div class="prepared" role="note"><div class="wrap"><span><b>Private preview prepared for Nate Boyer.</b> Not published. Date, venue and lineup are proposals for discussion.</span><a class="link" href="#for-nate">Back to the note</a></div></div>
 <footer>

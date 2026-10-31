@@ -1,9 +1,9 @@
-// Stripe Payment Links for the Donate page.
-// Create each link in Stripe (Payment Links > New), then paste its https://buy.stripe.com/... URL below.
-// Until a link is filled in, its button falls back to the pledge form.
+// Stripe Payment Links for every giving button on the site (Donate, Rally Point sponsor page).
+// In Stripe: Payment Links > New, then paste each https://buy.stripe.com/... URL below.
+// Until a link is filled in, its button becomes "Pledge this gift" and opens the pledge form.
 window.STS_GIVE = {
-  "bed-monthly": "",   // $720 / month recurring: "Sponsor a bed"
-  "share-monthly": "", // $180 / month recurring: "Share a bed"
-  "week": "",          // $350 one time: "One week" (case management, drug testing, house safety)
-  "custom": ""         // one time, customer chooses amount: "Fund the house"
+  "week": "",    // $350 one time: one week for one veteran
+  "month": "",   // $1,400 one time: four weeks for one veteran
+  "weekly": "",  // $350 a week, recurring (billed monthly in Stripe)
+  "custom": ""   // one time, donor chooses the amount
 };

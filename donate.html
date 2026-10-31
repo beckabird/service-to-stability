@@ -56,39 +56,39 @@
     <div class="section-head">
       <p class="eyebrow">Choose your gift</p>
       <h2 id="give-title">Every dollar goes to the first house.</h2>
-      <p>Secure checkout through Stripe. You'll get an emailed receipt, and monthly gifts can be changed or cancelled anytime.</p>
+      <p data-show="live" hidden>Secure checkout through Stripe, with an emailed receipt. Recurring gifts can be changed or cancelled anytime.</p>
     </div>
-    <div class="give-soon" id="give-soon" hidden>
-      <b>Online giving opens soon.</b> Pledge now and we'll send you a secure giving link the day it's live. <a class="link" href="/get-involved#sponsor">Pledge your gift</a>
+    <div class="give-soon" data-show="pledge" hidden>
+      <b>Pledge your gift and we'll follow up personally</b> with a secure way to pay, or mail a check to the address below. A pledge is a promise, not a payment.
     </div>
     <div class="gives">
       <article class="give feature">
-        <p class="give-per">Monthly</p>
-        <p class="give-amt">$720</p>
-        <h3>Sponsor a bed</h3>
-        <p>Covers one bed, every night of the month. Your name or your organization's goes on the bed.</p>
-        <a class="btn btn-sand" data-give="bed-monthly" href="/get-involved#sponsor">Sponsor a bed</a>
-      </article>
-      <article class="give">
-        <p class="give-per">Monthly</p>
-        <p class="give-amt">$180</p>
-        <h3>Share a bed</h3>
-        <p>One quarter of a bed. Four friends, a small group or a post covers it together.</p>
-        <a class="btn btn-solid" data-give="share-monthly" href="/get-involved#sponsor">Give monthly</a>
+        <p class="give-per">One time</p>
+        <p class="give-amt">$350</p>
+        <h3>Sponsor a week</h3>
+        <p>Case management, drug testing and house safety for one veteran for seven days. Nobody counts nights.</p>
+        <a class="btn btn-sand" data-give="week" href="/get-involved?gift=week#join-form">Sponsor a week</a>
       </article>
       <article class="give">
         <p class="give-per">One time</p>
-        <p class="give-amt">$350</p>
-        <h3>One week</h3>
-        <p>Case management, drug testing and house safety for one veteran for seven days. Nobody counts nights.</p>
-        <a class="btn btn-solid" data-give="week" href="/get-involved#sponsor">Sponsor a week</a>
+        <p class="give-amt">$1,400</p>
+        <h3>Sponsor a month</h3>
+        <p>Four weeks for one veteran: enough time to get benefits filed and a job search started.</p>
+        <a class="btn btn-solid" data-give="month" href="/get-involved?gift=month#join-form">Sponsor a month</a>
+      </article>
+      <article class="give">
+        <p class="give-per">Recurring</p>
+        <p class="give-amt">$350/wk</p>
+        <h3>Standing sponsor</h3>
+        <p>Cover a week, every week. Your name or your organization's goes on a bed.</p>
+        <a class="btn btn-solid" data-give="weekly" href="/get-involved?gift=weekly#join-form">Become a sponsor</a>
       </article>
       <article class="give">
         <p class="give-per">One time · You choose</p>
         <p class="give-amt">Any</p>
         <h3>Fund the house</h3>
         <p>Startup costs first: deposit, beds and furniture that open the door.</p>
-        <a class="btn btn-solid" data-give="custom" href="/get-involved#sponsor">Give any amount</a>
+        <a class="btn btn-solid" data-give="custom" href="/get-involved?gift=custom#join-form">Give any amount</a>
       </article>
     </div>
     <p class="fine">The Service to Stability Project is a Tennessee nonprofit in formation. Whether gifts are tax-deductible depends on the IRS approving our 501(c)(3) status; your receipt will say so, and we'll update this page when we hear back. Questions: contact@servicetostability.org or 931-324-4070.</p>
@@ -99,7 +99,7 @@
   <div class="wrap">
     <div class="section-head" style="margin-bottom:24px">
       <p class="eyebrow">Other ways to give</p>
-      <h2 id="other-title">Not ready to give online?</h2>
+      <h2 id="other-title">Other ways to help the house open.</h2>
     </div>
     <ul class="checks" style="max-width:720px">
       <li><span><b>Mail a check</b> to The Service to Stability Project, 131 Dean Dr PMB #755, Clarksville, TN 37040</span></li>
@@ -110,17 +110,7 @@
   </div>
 </section>
 <script src="/donate-config.js"></script>
-<script>
-(function () {
-  var cfg = window.STS_GIVE || {}, missing = false;
-  document.querySelectorAll('[data-give]').forEach(function (a) {
-    var url = cfg[a.getAttribute('data-give')];
-    if (url && /^https:\/\/(buy|donate)\.stripe\.com\//.test(url)) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
-    else { missing = true; a.textContent = 'Pledge this gift'; }
-  });
-  if (missing) document.getElementById('give-soon').hidden = false;
-})();
-</script>
+<script src="/give.js"></script>
 
 </main>
 <footer>

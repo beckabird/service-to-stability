@@ -6,9 +6,9 @@
 <title>Refer a Veteran · The Rally Point House</title>
 <link rel="canonical" href="https://www.project-pledge.com/rally-point/refer">
 <meta property="og:url" content="https://www.project-pledge.com/rally-point/refer">
-<meta name="description" content="Free, structured, sober transitional housing for veterans in Clarksville, Tennessee, near Fort Campbell. A Service to Stability Project house, opening soon.">
+<meta name="description" content="Free, structured, sober transitional housing for veterans in Clarksville, Tennessee, near Fort Campbell. A Service to Stability Project house, now raising funds to open.">
 <meta property="og:title" content="Refer a Veteran · The Rally Point House">
-<meta property="og:description" content="Free, structured, sober transitional housing for veterans in Clarksville, Tennessee, near Fort Campbell. A Service to Stability Project house, opening soon.">
+<meta property="og:description" content="Free, structured, sober transitional housing for veterans in Clarksville, Tennessee, near Fort Campbell. A Service to Stability Project house, now raising funds to open.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
 <link rel="stylesheet" href="/styles.css">
@@ -37,8 +37,8 @@
     <ul class="checks"><li><span>Contact details and timing are all we need now</span></li><li><span><b>No medical, legal or criminal details</b>; we'll cover what's needed by phone</span></li><li><span>We reply before opening day, in the order received</span></li></ul>
     <div class="contact-card"><p class="eyebrow">Or reach intake directly</p><dl><dt>Email</dt><dd><a href="mailto:contact@servicetostability.org">contact@servicetostability.org</a></dd><dt>Phone</dt><dd><a href="tel:+19313244070">931-324-4070</a></dd></dl></div>
   </div>
-  <form class="card" id="rp-form" novalidate>
-    <div class="field"><label for="f-who">I am</label><select id="f-who" name="who">
+  <form class="card" id="rp-form" novalidate data-form="rally-point" data-subject="Rally Point House" data-done="rp-done" data-done-title="You're on the opening list." data-done-text="Our intake director will reach out before the house opens, in the order we receive requests.">
+    <div class="field"><label for="f-who">I am</label><select id="f-who" name="who" data-label="I am" data-hash-select data-gift-role="sponsor">
       <option value="referrer">Referring a veteran (VA, treatment, court, other)</option>
       <option value="veteran">A veteran looking for housing</option>
       <option value="family">A family member</option>
@@ -46,22 +46,24 @@
       <option value="manager">Applying to be House Manager</option>
     </select></div>
     <div class="row">
-      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required maxlength="120" data-label="Your name"></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" data-label="Phone" data-check="phone"></div>
     </div>
-    <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
-    <div class="field" id="org-field"><label for="f-org">Organization <span class="opt">(for referrers)</span></label><input id="f-org" name="org" autocomplete="organization" placeholder="VA clinic, treatment center, court, agency"></div>
+    <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" data-label="Email" data-check="email"></div>
+    <div class="field" id="org-field"><label for="f-org">Organization <span class="opt">(for referrers)</span></label><input id="f-org" name="org" autocomplete="organization" maxlength="160" data-label="Organization" placeholder="VA clinic, treatment center, court, agency"></div>
     <div class="row">
-      <div class="field"><label for="f-county">County</label><input id="f-county" name="county" placeholder="Montgomery"></div>
-      <div class="field"><label for="f-timing">Timing</label><select id="f-timing" name="timing"><option>As soon as you open</option><option>Within 30 days of opening</option><option>Planning ahead</option></select></div>
+      <div class="field"><label for="f-county">County</label><input id="f-county" name="county" maxlength="60" data-label="County" placeholder="Montgomery"></div>
+      <div class="field"><label for="f-timing">Timing</label><select id="f-timing" name="timing" data-label="Timing"><option>As soon as you open</option><option>Within 30 days of opening</option><option>Planning ahead</option></select></div>
     </div>
-    <div class="field"><label for="f-note">Anything we should know?</label><textarea id="f-note" name="note" placeholder="Best time to call, discharge date, why you'd be a good House Manager"></textarea><span class="privacy">Please don't include medical or legal details.</span></div>
+    <div class="field"><label for="f-note">Anything we should know?</label><textarea id="f-note" name="note" maxlength="2000" data-label="Note" placeholder="Best time to call, discharge date, why you'd be a good House Manager"></textarea><span class="privacy">Please don't include medical or legal details.</span></div>
     <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
     <button class="btn btn-sand" type="submit">Send</button>
   </form>
-  <div class="done" id="rp-done" hidden role="status"><h3>You're on the opening list.</h3><p>Our intake director will reach out before we open. If you need help today, call 988 and press 1, or 877-424-3838.</p></div>
+  <div class="done" id="rp-done" hidden role="status" aria-live="polite"></div>
 </div></section>
-<script>(function(){var f=document.getElementById('rp-form'),d=document.getElementById('rp-done'),w=document.getElementById('f-who'),o=document.getElementById('org-field');var h=(location.hash||'').slice(1);if(h&&w.querySelector('option[value="'+h+'"]'))w.value=h;function t(){o.hidden=w.value!=='referrer';}w.addEventListener('change',t);t();f.addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('f-name'),p=document.getElementById('f-phone');[n,p].forEach(function(x){x.removeAttribute('aria-invalid');});var b=[n,p].filter(function(x){return !x.value.trim();});if(b.length){b.forEach(function(x){x.setAttribute('aria-invalid','true');});b[0].focus();return;}f.hidden=true;d.hidden=false;d.setAttribute('tabindex','-1');d.focus();});})();</script>
+<script src="/forms-config.js"></script>
+<script>(function(){var w=document.getElementById('f-who'),o=document.getElementById('org-field');function t(){o.hidden=w.value!=='referrer';}w.addEventListener('change',t);t();})();</script>
+<script src="/forms.js"></script>
 
 </main>
 <footer>

@@ -13,8 +13,11 @@ Plain static HTML and CSS. No build step.
 | `faq.html` | FAQ |
 | `get-involved.html` | Founding-list form and contact details |
 | `donate.html` | Donate page (Stripe Payment Links) |
-| `donate-config.js` | Paste Stripe Payment Link URLs here to turn on online giving |
-| `rally-point/` | The Rally Point House site (8 pages, served at /rally-point); `rally-point/give-config.js` holds its Stripe links |
+| `donate-config.js` | Stripe Payment Link URLs for every giving button on the site |
+| `give.js` | Wires `data-give` buttons to those links, or to the pledge form when a link is empty |
+| `forms-config.js` | Where form submissions go: an HTTPS endpoint, or a pre-filled email to the inbox |
+| `forms.js` | Validation, errors, loading, success and failure states for every `data-form` form |
+| `rally-point/` | The Rally Point House site (8 pages, served at /rally-point) |
 | `styles.css` | Shared styles (brand tokens at the top) |
 | `assets/` | White logo lockups for the navy header and footer |
 
@@ -30,12 +33,12 @@ Live at **https://www.project-pledge.com** (Vercel project `service-to-stability
 
 ## Turning on donations
 
-1. In Stripe, create four Payment Links: $720/month recurring (Sponsor a bed), $180/month recurring (Share a bed), $24 one time (One night), and one time with "customer chooses amount" (Fund the house).
+1. In Stripe, create four Payment Links: $350 one time (week), $1,400 one time (month), $350 a week recurring (weekly), and one time with "customer chooses amount" (custom).
 2. Paste each `https://buy.stripe.com/...` URL into `donate-config.js` and push. Buttons switch from "Pledge this gift" to live checkout automatically.
 
 ## Before launch
 
-- The founding-list form on `get-involved.html` only shows a thank-you message; connect it to a form service (Formspree, Tally, Google Forms) so submissions are saved.
+- Forms (founding list on `/get-involved`, opening list on `/rally-point/refer`) validate in the browser. With `forms-config.js` endpoint empty, a valid submission opens a pre-filled email to the inbox and shows the message to copy. Set `endpoint` to a URL that accepts a JSON POST to submit directly; the payload is `{ form, page, submitted_at, fields }`.
 - Figures (34,000 veterans, ≈4,500 Fort Campbell separations, 31% stay local) and budget numbers are planning estimates; keep them in sync with the brand guide.
 
 ## Drafts
