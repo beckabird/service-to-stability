@@ -19,6 +19,7 @@ Plain static HTML and CSS. No build step.
 | `404.html` | Branded not-found page (Vercel serves it for any missing URL) |
 | `favicon.ico`, `favicon.svg`, `assets/icons/`, `site.webmanifest` | Favicon set and app icons from the logo mark |
 | `assets/og-*.png` | 1200×630 share images for links on social and in messages |
+| `nav.js` | Mobile menu: Escape and outside-tap to close, aria-expanded |
 | `motion.js` | Scroll reveal for content below the fold (skipped under reduced motion); page cross-fades are pure CSS in `styles.css` |
 | `forms.js` | Validation, errors, loading, success and failure states for every `data-form` form |
 | `rally-point/` | The Rally Point House site (8 pages, served at /rally-point) |

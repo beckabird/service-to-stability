@@ -1,13 +1,13 @@
 /* The Rally Point House: additions on top of the shared Service to Stability styles */
 .rp-word { display: grid; line-height: 1; color: var(--band-fg); }
-.rp-word small { font-size: 10px; letter-spacing: .32em; font-weight: 600; }
+.rp-word small { font-size: 11px; letter-spacing: .32em; font-weight: 600; }
 .rp-word strong { font-size: 22px; font-weight: 700; letter-spacing: -.015em; margin: 3px 0 4px; }
 .rp-word em { font-style: normal; font-size: 10.5px; letter-spacing: .1em; color: var(--sage-on-band); font-weight: 600; }
 .rp-foot-word { display: grid; gap: 4px; color: var(--band-fg); align-content: start; }
-.rp-foot-word small { font-size: 10px; letter-spacing: .32em; font-weight: 600; }
+.rp-foot-word small { font-size: 11px; letter-spacing: .32em; font-weight: 600; }
 .rp-foot-word strong { font-size: 26px; letter-spacing: -.02em; line-height: 1.05; }
 .rp-foot-word .rule { width: 24px; height: 2px; background: var(--sage); margin: 6px 0; }
-.rp-foot-word em { font-style: normal; font-size: 10px; letter-spacing: .2em; font-weight: 600; color: var(--band-muted); }
+.rp-foot-word em { font-style: normal; font-size: 11px; letter-spacing: .2em; font-weight: 600; color: var(--band-muted); }
 .rp-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-7); align-items: start; }
 .rp-prose { display: grid; gap: var(--s-4); color: var(--muted); font-size: 19px; line-height: 1.6; }
 .rp-callout { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--sand); border-radius: var(--r-1); padding: 20px var(--s-5); font-size: 17.5px; line-height: 1.55; color: var(--fg); }

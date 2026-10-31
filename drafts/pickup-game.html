@@ -89,6 +89,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="bed" viewBox="0 0 44 28"><path d="M3 4V25M3 18H41V25M3 13H41V18M10 13V9C10 8 11 7 12 7H19C20 7 21 8 21 9V13"/></symbol>
 </svg>
@@ -133,10 +134,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="crisis" role="complementary" aria-label="Crisis help">
   <div class="wrap">
     <strong>In crisis?</strong>
-    <span>Call 988 and press 1, or text 838255. Homeless or at risk: call the VA at 877-424-3838. Both are free and answered 24/7.</span>
+    <span>Call 988 and press 1, or text <a class="tel" href="sms:838255">838255</a>. Homeless or at risk: call the VA at <a class="tel" href="tel:+18774243838">877-424-3838</a>. Both are free and answered 24/7.</span>
   </div>
 </div>
-<main>
+<main id="main" tabindex="-1">
 <section class="page-hero" id="event">
   <div class="wrap">
     <p class="eyebrow">Saturday, May 15, 2027 · Clarksville, Tennessee<span class="chip-preview">Preview</span></p>
@@ -427,7 +428,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </div>
       <div>
         <h2 class="fh">Get involved</h2>
-        <ul><li><a href="https://www.project-pledge.com/donate">Donate</a></li><li><a href="https://www.project-pledge.com/sponsor">Sponsor a bed</a></li><li><a href="https://www.project-pledge.com/get-involved">Join the founding list</a></li><li>Veterans Crisis Line: 988, press 1</li><li>Homeless veterans: 877-424-3838</li></ul>
+        <ul><li><a href="https://www.project-pledge.com/donate">Donate</a></li><li><a href="https://www.project-pledge.com/sponsor">Sponsor a bed</a></li><li><a href="https://www.project-pledge.com/get-involved">Join the founding list</a></li><li><a href="tel:988">Veterans Crisis Line: 988, press 1</a></li><li><a href="tel:+18774243838">Homeless veterans: 877-424-3838</a></li></ul>
       </div>
       <div>
         <h2 class="fh">Contact</h2>
@@ -437,6 +438,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <div class="legal"><span>© 2026 The Service to Stability Project · Clarksville, Tennessee · Nonprofit in formation · Presented with Foxhole Forum and Merging Vets and Players</span><span>From service to stability.</span></div>
   </div>
 </footer>
+<script src="/nav.js" defer></script>
 <script src="/motion.js" defer></script>
 </body>
 </html>

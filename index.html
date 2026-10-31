@@ -28,6 +28,7 @@
 <style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="8 8 326 206">
     <path class="mark-fill" fill-rule="evenodd" d="M152 12H256V109H232V34H174V109H152Z"/>
@@ -52,10 +53,10 @@
 <div class="crisis" role="complementary" aria-label="Crisis help">
   <div class="wrap">
     <strong>Need help today?</strong>
-    <span>We're not open yet. In crisis: call 988 and press 1, or text 838255. Homeless or at risk: call the VA's National Call Center for Homeless Veterans at 877-424-3838. Both are free and answered 24/7.</span>
+    <span>We're not open yet. In crisis: call <a class="tel" href="tel:988">988</a> and press 1, or text <a class="tel" href="sms:838255">838255</a>. Homeless or at risk: call the VA's National Call Center for Homeless Veterans at <a class="tel" href="tel:+18774243838">877-424-3838</a>. Both are free and answered 24/7.</span>
   </div>
 </div>
-<main>
+<main id="main" tabindex="-1">
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap">
     <p class="eyebrow">Clarksville, Tennessee · Now raising our first house</p>
@@ -120,7 +121,7 @@
       </div>
       <div>
         <h2 class="fh">Get involved</h2>
-        <ul><li><a href="/donate">Donate</a></li><li><a href="/sponsor">Sponsor a bed</a></li><li><a href="/get-involved">Join the founding list</a></li><li>Veterans Crisis Line: 988, press 1</li><li>Homeless veterans: 877-424-3838</li></ul>
+        <ul><li><a href="/donate">Donate</a></li><li><a href="/sponsor">Sponsor a bed</a></li><li><a href="/get-involved">Join the founding list</a></li><li><a href="tel:988">Veterans Crisis Line: 988, press 1</a></li><li><a href="tel:+18774243838">Homeless veterans: 877-424-3838</a></li></ul>
       </div>
       <div>
         <h2 class="fh">Contact</h2>
@@ -143,6 +144,7 @@
   window.addEventListener('load', toTop);
 })();
 </script>
+<script src="/nav.js" defer></script>
 <script src="/motion.js" defer></script>
 </body>
 </html>
