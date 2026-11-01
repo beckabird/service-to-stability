@@ -253,7 +253,8 @@
     ul.innerHTML = state.gifts.map(function (g) {
       return '<li><button type="button" class="msg" data-gift="' + g.id + '">' +
         '<span class="msg-top"><b>' + esc(g.donor_name) + '</b><span class="tag tag-' + (g.status === 'received' ? 'closed' : 'new') + '">' + (g.status === 'received' ? 'Received' : 'Pledged') + '</span></span>' +
-        '<span class="msg-meta">' + (g.amount_cents ? usd(g.amount_cents) : 'Amount not recorded') + (g.bed ? ' · Bed ' + g.bed : '') + (g.public_name ? ' · Shown as ' + esc(g.public_name) : ' · Private') + '</span></button></li>';
+        '<span class="msg-meta">' + (g.amount_cents ? usd(g.amount_cents) : 'Amount not recorded') + (g.bed ? ' · Bed ' + g.bed : '') + (g.public_name ? ' · Shown as ' + esc(g.public_name) : ' · Private') + '</span>' +
+        (g.source === 'stripe' ? '<span class="msg-meta"><span class="tag tag-stripe">Stripe</span> ' + when(g.created_at) + (g.donor_email ? ' · ' + esc(g.donor_email) : '') + '</span>' : '') + '</button></li>';
     }).join('');
   }
   $('[data-gifts-list]').addEventListener('click', function (e) {
@@ -272,6 +273,8 @@
     var bedSel = $('#g-bed'); bedSel.innerHTML = '<option value="">No bed</option>';
     for (var i = 1; i <= 8; i++) bedSel.insertAdjacentHTML('beforeend', '<option value="' + i + '"' + (taken[i] ? ' disabled' : '') + '>Bed ' + i + (taken[i] ? ' (taken by ' + esc(taken[i]) + ')' : '') + '</option>');
     var amountFor = { week: '226', month: '904', weekly: '226' };
+    var src = $('[data-gift-source]', f); if (src) src.remove();
+    if (g && g.source === 'stripe') $('h2', f).insertAdjacentHTML('afterend', '<p class="privacy" data-gift-source>Paid through Stripe' + (g.donor_email ? ' by <a href="mailto:' + esc(g.donor_email) + '">' + esc(g.donor_email) + '</a>' : '') + '. Refunds in Stripe update this gift automatically.</p>');
     if (g) {
       $('#g-donor').value = g.donor_name; $('#g-public').value = g.public_name || '';
       $('#g-amount').value = g.amount_cents ? String(g.amount_cents / 100) : ''; $('#g-status').value = g.status;

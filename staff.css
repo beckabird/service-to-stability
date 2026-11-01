@@ -78,3 +78,4 @@ body.staff { background: var(--bg); }
 }
 @media (max-width: 480px) { .detail-dl div { grid-template-columns: 1fr; gap: 2px; } .tabs { width: 100%; } .tabs button { flex: 1; padding: 0 8px; } }
 .staff-boot { font-size: var(--fs-body); font-weight: 400; color: var(--muted); letter-spacing: 0; }
+.tag-stripe { background: var(--slate); color: #fff; }

@@ -73,3 +73,13 @@ python3 tools/sync_layout.py
 ```
 
 It rewrites every page and marks the current page in the nav. `python3 tools/sync_layout.py --check` reports any page that has drifted without changing anything. `layout/` and `tools/` are not deployed.
+
+## Stripe gifts flow into the inbox automatically
+
+`supabase/functions/stripe-webhook` (deployed to the Supabase project as `stripe-webhook`) receives Stripe events, checks Stripe's signature with the `STRIPE_WEBHOOK_SECRET` function secret, and writes `public.gifts`:
+
+- `checkout.session.completed` (one-time gifts) and `invoice.paid` (each week of a recurring gift) add a received gift, tagged Stripe, with the donor's email (staff only).
+- `charge.refunded` removes a fully refunded gift or reduces a partial one.
+- Stripe retries are safe: each Checkout Session or Invoice is recorded once.
+
+Stripe webhook endpoint: `https://eatrpzvogytrcpnprvby.supabase.co/functions/v1/stripe-webhook`
