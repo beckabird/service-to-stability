@@ -32,7 +32,7 @@ function db(env, fetchImpl) {
   const headers = { apikey: env.SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`, 'Content-Type': 'application/json' };
   return {
     async find(query) {
-      const r = await fetchImpl(`${base}?select=id,amount_cents&${query}`, { headers });
+      const r = await fetchImpl(`${base}?select=id,amount_cents,stripe_payment_intent,donor_email&${query}`, { headers });
       if (!r.ok) throw new Error(`select failed ${r.status}`);
       return r.json();
     },
@@ -53,10 +53,25 @@ function db(env, fetchImpl) {
   };
 }
 
+// Older API versions put payment_intent on the invoice; newer ones list it under invoice.payments.
+function invoicePaymentIntent(inv) {
+  if (inv.payment_intent) return typeof inv.payment_intent === 'string' ? inv.payment_intent : inv.payment_intent.id;
+  const p = inv.payments && inv.payments.data && inv.payments.data.find((x) => x.payment && x.payment.payment_intent);
+  if (!p) return null;
+  const pi = p.payment.payment_intent;
+  return typeof pi === 'string' ? pi : pi && pi.id;
+}
+
 async function recordGift(store, { ref, paymentIntent, amount, name, email, label }) {
   if (!amount || amount <= 0) return 'skipped: no amount';
   const existing = await store.find(`stripe_ref=eq.${encodeURIComponent(ref)}`);
-  if (existing.length) return 'duplicate';
+  if (existing.length) {
+    const patch = {};
+    if (paymentIntent && !existing[0].stripe_payment_intent) patch.stripe_payment_intent = paymentIntent;
+    if (email && !existing[0].donor_email) patch.donor_email = email.slice(0, 200);
+    if (Object.keys(patch).length) { await store.update(existing[0].id, patch); return 'updated'; }
+    return 'duplicate';
+  }
   return store.insert({
     donor_name: (name || email || 'Online donor').slice(0, 160),
     donor_email: email ? email.slice(0, 200) : null,
@@ -84,8 +99,19 @@ export async function handleEvent(event, env, fetchImpl) {
     // Recurring gifts: the first week and every renewal.
     case 'invoice.paid': {
       if (!o.subscription && !(o.parent && o.parent.subscription_details)) return 'skipped: not a subscription invoice';
-      return recordGift(store, { ref: o.id, paymentIntent: o.payment_intent, amount: o.amount_paid, name: o.customer_name, email: o.customer_email,
+      return recordGift(store, { ref: o.id, paymentIntent: invoicePaymentIntent(o), amount: o.amount_paid, name: o.customer_name, email: o.customer_email,
         label: o.billing_reason === 'subscription_create' ? 'Sponsor every week (first week)' : 'Sponsor every week' });
+    }
+    // Newer Stripe API versions: links each recurring payment to its invoice, so refunds can find the gift.
+    case 'invoice_payment.paid': {
+      const pi = o.payment && (typeof o.payment.payment_intent === 'string' ? o.payment.payment_intent : o.payment.payment_intent && o.payment.payment_intent.id);
+      const invoiceId = typeof o.invoice === 'string' ? o.invoice : o.invoice && o.invoice.id;
+      if (!pi || !invoiceId) return 'skipped: no payment intent or invoice';
+      const rows = await store.find(`stripe_ref=eq.${encodeURIComponent(invoiceId)}`);
+      if (!rows.length) throw new Error('gift for invoice not recorded yet; Stripe will retry');
+      if (rows[0].stripe_payment_intent === pi) return 'already linked';
+      await store.update(rows[0].id, { stripe_payment_intent: pi });
+      return 'linked';
     }
     // Refunds: remove a fully refunded gift, reduce a partial one.
     case 'charge.refunded': {
