@@ -83,3 +83,14 @@ It rewrites every page and marks the current page in the nav. `python3 tools/syn
 - Stripe retries are safe: each Checkout Session or Invoice is recorded once.
 
 Stripe webhook endpoint: `https://eatrpzvogytrcpnprvby.supabase.co/functions/v1/stripe-webhook`
+
+## Email alerts and thank-you notes (Resend)
+
+`supabase/functions/notify` sends email when a row is added:
+
+- **Form submission:** an alert to staff (name, reason and a link to /staff only; never phone numbers or notes), plus a confirmation to the person if they gave an email.
+- **Stripe gift:** an alert to staff, plus a thank-you to the donor. Manual gifts entered in /staff send nothing.
+
+Database triggers (`notify_new_submission`, `notify_new_stripe_gift`) post `{table, id}` to the function, which re-reads the row and sends each email only once (`notified_at`).
+
+It does nothing until `RESEND_API_KEY` is set under Supabase → Edge Functions → Secrets, and project-pledge.com is verified in Resend. Optional secrets: `NOTIFY_FROM` (default `The Service to Stability Project <hello@project-pledge.com>`), `NOTIFY_TO` and `NOTIFY_REPLY_TO` (default `contact@servicetostability.org`), and `NOTIFY_PHONE`.
