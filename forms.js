@@ -4,9 +4,9 @@
 (function () {
   var cfg = window.STS_FORMS || {};
   var GIFTS = {
-    week: 'Sponsor a week ($226, one time)',
-    month: 'Sponsor a month ($904, one time)',
-    weekly: 'Standing sponsor ($226 a week, recurring)',
+    week: 'Sponsor a week ($166, one time)',
+    month: 'Sponsor a month ($720, one time)',
+    bed: 'Sponsor a bed ($720 a month, recurring)',
     custom: 'A gift of my choosing'
   };
 

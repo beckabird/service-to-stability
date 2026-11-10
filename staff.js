@@ -7,7 +7,7 @@
   var esc = function (t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; };
   var usd = function (c) { return '$' + (c / 100).toLocaleString('en-US', { minimumFractionDigits: c % 100 ? 2 : 0, maximumFractionDigits: 2 }); };
   var when = function (iso) { return new Date(iso).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); };
-  var GIFTS = { week: 'Sponsor a week ($226)', month: 'Sponsor a month ($904)', weekly: 'Standing sponsor ($226 a week)', custom: 'Their choice of amount' };
+  var GIFTS = { week: 'Sponsor a week ($166)', month: 'Sponsor a month ($720)', bed: 'Sponsor a bed ($720 a month)', weekly: 'Standing sponsor (old $226 a week)', custom: 'Their choice of amount' };
   var FORMS = { 'founding-list': 'Founding list', 'rally-point': 'Rally Point' };
   var STATUS = { new: 'New', contacted: 'Contacted', closed: 'Closed' };
 
@@ -272,7 +272,7 @@
     var taken = {}; state.gifts.forEach(function (x) { if (x.bed && (!g || x.id !== g.id)) taken[x.bed] = x.public_name || x.donor_name; });
     var bedSel = $('#g-bed'); bedSel.innerHTML = '<option value="">No bed</option>';
     for (var i = 1; i <= 8; i++) bedSel.insertAdjacentHTML('beforeend', '<option value="' + i + '"' + (taken[i] ? ' disabled' : '') + '>Bed ' + i + (taken[i] ? ' (taken by ' + esc(taken[i]) + ')' : '') + '</option>');
-    var amountFor = { week: '226', month: '904', weekly: '226' };
+    var amountFor = { week: '166', month: '720', bed: '720', weekly: '226' };
     var src = $('[data-gift-source]', f); if (src) src.remove();
     if (g && g.source === 'stripe') $('h2', f).insertAdjacentHTML('afterend', '<p class="privacy" data-gift-source>Paid through Stripe' + (g.donor_email ? ' by <a href="mailto:' + esc(g.donor_email) + '">' + esc(g.donor_email) + '</a>' : '') + '. Refunds in Stripe update this gift automatically.</p>');
     if (g) {
@@ -304,7 +304,7 @@
     $$('[aria-invalid]', f).forEach(function (x) { x.removeAttribute('aria-invalid'); });
     var bad = [];
     if (!donor) { $('#g-donor').setAttribute('aria-invalid', 'true'); bad.push('Add the donor’s name.'); }
-    if (amt && !/^\d+(\.\d{1,2})?$/.test(amt) || amt && Number(amt) <= 0) { $('#g-amount').setAttribute('aria-invalid', 'true'); bad.push('Enter the amount as a number, like 226 or 904.'); }
+    if (amt && !/^\d+(\.\d{1,2})?$/.test(amt) || amt && Number(amt) <= 0) { $('#g-amount').setAttribute('aria-invalid', 'true'); bad.push('Enter the amount as a number, like 166 or 720.'); }
     if (bad.length) { alertMsg(alertEl, bad.join(' ')); f.querySelector('[aria-invalid]').focus(); return; }
     var row = { donor_name: donor, public_name: $('#g-public').value.trim() || null, amount_cents: amt ? Math.round(Number(amt) * 100) : null,
       status: $('#g-status').value, bed: $('#g-bed').value ? Number($('#g-bed').value) : null, note: $('#g-note').value.trim() || null };

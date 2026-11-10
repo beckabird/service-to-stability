@@ -1,7 +1,7 @@
 // Stripe webhook -> public.gifts. Verifies Stripe's signature, then records gifts and refunds.
 // Works in Deno (Supabase Edge Functions) and Node 18+ (for tests): uses only fetch and Web Crypto.
 
-const LABELS = { 22600: 'Sponsor a week', 90400: 'Sponsor a month' };
+const LABELS = { 16600: 'Sponsor a week', 72000: 'Sponsor a month', 22600: 'Sponsor a week (old price)', 90400: 'Sponsor a month (old price)' };
 const TOLERANCE_SECONDS = 300;
 
 function hex(buf) {
@@ -100,7 +100,7 @@ export async function handleEvent(event, env, fetchImpl) {
     case 'invoice.paid': {
       if (!o.subscription && !(o.parent && o.parent.subscription_details)) return 'skipped: not a subscription invoice';
       return recordGift(store, { ref: o.id, paymentIntent: invoicePaymentIntent(o), amount: o.amount_paid, name: o.customer_name, email: o.customer_email,
-        label: o.billing_reason === 'subscription_create' ? 'Sponsor every week (first week)' : 'Sponsor every week' });
+        label: o.billing_reason === 'subscription_create' ? 'Sponsor a bed (first payment)' : 'Sponsor a bed' });
     }
     // Newer Stripe API versions: links each recurring payment to its invoice, so refunds can find the gift.
     case 'invoice_payment.paid': {
